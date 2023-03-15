@@ -1,3 +1,4 @@
+using Dapper;
 using System.Data;
 
 namespace Yumby2;
@@ -11,23 +12,31 @@ public class RecipeRepository : IRecipeRepository
         _dbConnection = dbConnection;        
     }
 
-    public IEnumerable<Recipe> GetAllRecipes()
+    public IEnumerable<Recipe> GetAll()
+    {
+        return _dbConnection.Query<Recipe>("SELECT * FROM Recipes");
+    }
+
+    public Recipe GetById(int id)
     {
         throw new NotImplementedException();
     }
 
-    public bool Delete(Recipe Recipe)
+    public void Insert(Recipe Recipe)
     {
-        throw new NotImplementedException();
+        string sql = "INSERT INTO Recipes (Name, Price) VALUES (@Name, @Price)";
+        _dbConnection.Execute(sql, Recipe);
     }
 
-    public bool Insert(Recipe Recipe)
+    public void Update(Recipe Recipe)
     {
-        throw new NotImplementedException();
+        string sql = "UPDATE Recipe SET Name = @Name, Price = @Price WHERE Id = @Id";
+        _dbConnection.Execute(sql, Recipe);
     }
 
-    public bool Update(Recipe Recipe)
+    public void Delete(int id)
     {
-        throw new NotImplementedException();
+        string sql = "DELETE FROM Recipes WHERE Id = @Id";
+        _dbConnection.Execute(sql, new { RecipeId = id });
     }
 }

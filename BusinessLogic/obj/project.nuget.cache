@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "Kgfu5fNc1RR7vvtl6wKV8ct+E/GuL0p2WKoKnyTSa8tKg2CU9Qthgh6DSim6eiQ5tX5q+2UpFRgM57XpddUgqA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\charl\\dev\\Yumby2\\BusinessLogic\\BusinessLogic.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\charl\\.nuget\\packages\\dapper\\2.0.123\\dapper.2.0.123.nupkg.sha512",
+    "C:\\Users\\charl\\.nuget\\packages\\microsoft.data.sqlite.core\\7.0.4\\microsoft.data.sqlite.core.7.0.4.nupkg.sha512",
+    "C:\\Users\\charl\\.nuget\\packages\\sqlitepclraw.core\\2.1.4\\sqlitepclraw.core.2.1.4.nupkg.sha512",
+    "C:\\Users\\charl\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512"
+  ],
+  "logs": []
+}

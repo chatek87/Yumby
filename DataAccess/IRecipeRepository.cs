@@ -5,8 +5,9 @@ namespace Yumby2;
 
 public interface IRecipeRepository
 {
-    IEnumerable<Recipe> GetAllRecipes();
-    bool Insert(Recipe Recipe);
-    bool Update(Recipe Recipe);
-    bool Delete(Recipe Recipe);
+    IEnumerable<Recipe> GetAll();
+    Recipe GetById(int id);
+    void Insert(Recipe Recipe);
+    void Update(Recipe Recipe);
+    void Delete(int id);
 }
