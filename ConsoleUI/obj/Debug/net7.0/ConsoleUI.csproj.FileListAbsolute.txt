@@ -1,0 +1,15 @@
+C:\Users\charl\dev\Yumby2\ConsoleUI\bin\Debug\net7.0\ConsoleUI.exe
+C:\Users\charl\dev\Yumby2\ConsoleUI\bin\Debug\net7.0\ConsoleUI.deps.json
+C:\Users\charl\dev\Yumby2\ConsoleUI\bin\Debug\net7.0\ConsoleUI.runtimeconfig.json
+C:\Users\charl\dev\Yumby2\ConsoleUI\bin\Debug\net7.0\ConsoleUI.dll
+C:\Users\charl\dev\Yumby2\ConsoleUI\bin\Debug\net7.0\ConsoleUI.pdb
+C:\Users\charl\dev\Yumby2\ConsoleUI\obj\Debug\net7.0\ConsoleUI.csproj.AssemblyReference.cache
+C:\Users\charl\dev\Yumby2\ConsoleUI\obj\Debug\net7.0\ConsoleUI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\charl\dev\Yumby2\ConsoleUI\obj\Debug\net7.0\ConsoleUI.AssemblyInfoInputs.cache
+C:\Users\charl\dev\Yumby2\ConsoleUI\obj\Debug\net7.0\ConsoleUI.AssemblyInfo.cs
+C:\Users\charl\dev\Yumby2\ConsoleUI\obj\Debug\net7.0\ConsoleUI.csproj.CoreCompileInputs.cache
+C:\Users\charl\dev\Yumby2\ConsoleUI\obj\Debug\net7.0\ConsoleUI.dll
+C:\Users\charl\dev\Yumby2\ConsoleUI\obj\Debug\net7.0\refint\ConsoleUI.dll
+C:\Users\charl\dev\Yumby2\ConsoleUI\obj\Debug\net7.0\ConsoleUI.pdb
+C:\Users\charl\dev\Yumby2\ConsoleUI\obj\Debug\net7.0\ConsoleUI.genruntimeconfig.cache
+C:\Users\charl\dev\Yumby2\ConsoleUI\obj\Debug\net7.0\ref\ConsoleUI.dll
