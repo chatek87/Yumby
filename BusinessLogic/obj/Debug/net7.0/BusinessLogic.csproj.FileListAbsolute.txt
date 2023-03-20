@@ -15,3 +15,5 @@ C:\Users\charl\dev\Yumby2\BusinessLogic\obj\Debug\net7.0\BusinessLogic.dll
 C:\Users\charl\dev\Yumby2\BusinessLogic\obj\Debug\net7.0\refint\BusinessLogic.dll
 C:\Users\charl\dev\Yumby2\BusinessLogic\obj\Debug\net7.0\BusinessLogic.pdb
 C:\Users\charl\dev\Yumby2\BusinessLogic\obj\Debug\net7.0\ref\BusinessLogic.dll
+C:\Users\charl\dev\Yumby2\BusinessLogic\bin\Debug\net7.0\BusinessLogic.runtimeconfig.json
+C:\Users\charl\dev\Yumby2\BusinessLogic\obj\Debug\net7.0\BusinessLogic.genruntimeconfig.cache

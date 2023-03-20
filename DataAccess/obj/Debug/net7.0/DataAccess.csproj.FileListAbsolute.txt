@@ -13,3 +13,5 @@ C:\Users\charl\dev\Yumby2\DataAccess\obj\Debug\net7.0\DataAccess.dll
 C:\Users\charl\dev\Yumby2\DataAccess\obj\Debug\net7.0\refint\DataAccess.dll
 C:\Users\charl\dev\Yumby2\DataAccess\obj\Debug\net7.0\DataAccess.pdb
 C:\Users\charl\dev\Yumby2\DataAccess\obj\Debug\net7.0\ref\DataAccess.dll
+C:\Users\charl\dev\Yumby2\DataAccess\bin\Debug\net7.0\DataAccess.runtimeconfig.json
+C:\Users\charl\dev\Yumby2\DataAccess\obj\Debug\net7.0\DataAccess.genruntimeconfig.cache
