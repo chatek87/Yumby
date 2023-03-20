@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "d2BB52J2cugycdi8vgrDieZdMiRZnLKiejXuNbZFGLnq286RsMqCEbkVAAjktEZLEkB58shzNuPUHxF3Yj1TVQ==",
+  "dgSpecHash": "8ppRarglmja9RviPRRO2EW+Mh8al2TqEZTcdnZScTeDzDynNpzj1l0npvJ1fRdAdLA0qfxX6Vf5y8+1sZTzGEg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\charl\\dev\\Yumby2\\DataModels\\DataModels.csproj",
+  "projectFilePath": "C:\\Users\\charl\\dev\\Yumby\\DataModels\\DataModels.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

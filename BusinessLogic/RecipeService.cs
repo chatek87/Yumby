@@ -1,4 +1,7 @@
-﻿namespace Yumby2;
+﻿using Yumby.DataModels;
+using Yumby.DataAccess;
+
+namespace Yumby.BusinessLogic;
 
 public class RecipeService
 {

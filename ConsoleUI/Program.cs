@@ -1,13 +1,8 @@
-﻿using Yumby2;
+﻿using Yumby.DataAccess;
 
 Title = "Yummmmmmmmby!";
+CursorVisible = false;
 
-//1. check if db exists
-//string dbPath = "mydatabase.sqlite3";
-//if (!File.Exists(dbPath))
-//{
-//    DbInitializer.CreateAndSeedDb(dbPath);
-//}
 DbInitializer.CheckForExistingDb(Globals.dbPath);
 
 ReadKey();

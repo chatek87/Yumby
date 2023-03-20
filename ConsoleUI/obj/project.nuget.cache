@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "QKtg1iryexj0D1UrYdl5+jJCUmjnemtF/In9obaqyJzO71bKRIbXeq34GxoAygPuCrs/9bNebqIUUwaibTGa+w==",
+  "dgSpecHash": "7C4wXshF9ZPtcVEepFm0Nb1Ty6eFUyw6Di+eJj256zQv0p/Cy/5ofEA82zi13YWCVml5zfqwf5Yg2KAdili8cg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\charl\\dev\\Yumby2\\ConsoleUI\\ConsoleUI.csproj",
+  "projectFilePath": "C:\\Users\\charl\\dev\\Yumby\\ConsoleUI\\ConsoleUI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\charl\\.nuget\\packages\\dapper\\2.0.123\\dapper.2.0.123.nupkg.sha512",
     "C:\\Users\\charl\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",

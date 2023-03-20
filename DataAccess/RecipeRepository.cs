@@ -1,7 +1,8 @@
 using Dapper;
 using System.Data;
+using Yumby.DataModels;
 
-namespace Yumby2;
+namespace Yumby.DataAccess;
 
 public class RecipeRepository : IRecipeRepository
 {

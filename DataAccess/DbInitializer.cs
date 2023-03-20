@@ -1,7 +1,7 @@
 using System.Data.SQLite;
 using Dapper;
 
-namespace Yumby2;
+namespace Yumby.DataAccess;
 
 public static class DbInitializer
 {

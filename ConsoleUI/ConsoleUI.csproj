@@ -15,9 +15,4 @@
 		<Using Include="System.Console" Static="true" />
 	</ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Actions\" />
-    <Folder Include="Menus\" />
-  </ItemGroup>
-
 </Project>

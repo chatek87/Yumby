@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "iUluRfbZ794hB2ii9627zjYtV2ML6FcC3sohFJa1udkt6ZyUI88MqZZIvBcY4/ptrTPrEFIkVKTm59e2Rid4Kw==",
+  "dgSpecHash": "Wp1tKogBZYx43gPdMsVCo3cMXrIbHKX+yNwQDrjQAE0lAMpMhuEXfRO395P8xQzET1KkqNSZHnkaGoS9PyWnUA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\charl\\dev\\Yumby2\\BusinessLogic\\BusinessLogic.csproj",
+  "projectFilePath": "C:\\Users\\charl\\dev\\Yumby\\BusinessLogic\\BusinessLogic.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\charl\\.nuget\\packages\\dapper\\2.0.123\\dapper.2.0.123.nupkg.sha512",
     "C:\\Users\\charl\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",

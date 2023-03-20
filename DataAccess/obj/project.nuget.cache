@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ifFhDdEE17XUQFhMVb7HlrK/MtY/Lj80mvbpDtQvlFFzK41pAGjr9jq0EqaKoCYMHoSm1Th9EHMD9gjedHD6Zg==",
+  "dgSpecHash": "B+9QfMJosizRctg8+EvTeT2nnc2NvRWF5Y0IjABpcDN6RNIop0DZP3CBRHPO4nEEZKNi9FrHLIoYoiV/3TMsjg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\charl\\dev\\Yumby2\\DataAccess\\DataAccess.csproj",
+  "projectFilePath": "C:\\Users\\charl\\dev\\Yumby\\DataAccess\\DataAccess.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\charl\\.nuget\\packages\\dapper\\2.0.123\\dapper.2.0.123.nupkg.sha512",
     "C:\\Users\\charl\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",

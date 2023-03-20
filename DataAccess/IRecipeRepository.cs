@@ -1,7 +1,8 @@
 ﻿using Microsoft.Data.Sqlite;
 using System.Collections.Generic;
+using Yumby.DataModels;
 
-namespace Yumby2;
+namespace Yumby.DataAccess;
 
 public interface IRecipeRepository
 {

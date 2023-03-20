@@ -1,4 +1,4 @@
-namespace Yumby2;
+namespace Yumby.DataModels;
 
 public class Ingredient
 {
