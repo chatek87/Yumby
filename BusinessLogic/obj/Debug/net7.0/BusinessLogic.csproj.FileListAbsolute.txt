@@ -1,0 +1,17 @@
+C:\Users\charl\dev\Yumby2\BusinessLogic\bin\Debug\net7.0\BusinessLogic.deps.json
+C:\Users\charl\dev\Yumby2\BusinessLogic\bin\Debug\net7.0\BusinessLogic.dll
+C:\Users\charl\dev\Yumby2\BusinessLogic\bin\Debug\net7.0\BusinessLogic.pdb
+C:\Users\charl\dev\Yumby2\BusinessLogic\bin\Debug\net7.0\DataAccess.dll
+C:\Users\charl\dev\Yumby2\BusinessLogic\bin\Debug\net7.0\DataModels.dll
+C:\Users\charl\dev\Yumby2\BusinessLogic\bin\Debug\net7.0\DataAccess.pdb
+C:\Users\charl\dev\Yumby2\BusinessLogic\bin\Debug\net7.0\DataModels.pdb
+C:\Users\charl\dev\Yumby2\BusinessLogic\obj\Debug\net7.0\BusinessLogic.csproj.AssemblyReference.cache
+C:\Users\charl\dev\Yumby2\BusinessLogic\obj\Debug\net7.0\BusinessLogic.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\charl\dev\Yumby2\BusinessLogic\obj\Debug\net7.0\BusinessLogic.AssemblyInfoInputs.cache
+C:\Users\charl\dev\Yumby2\BusinessLogic\obj\Debug\net7.0\BusinessLogic.AssemblyInfo.cs
+C:\Users\charl\dev\Yumby2\BusinessLogic\obj\Debug\net7.0\BusinessLogic.csproj.CoreCompileInputs.cache
+C:\Users\charl\dev\Yumby2\BusinessLogic\obj\Debug\net7.0\BusinessLogic.csproj.CopyComplete
+C:\Users\charl\dev\Yumby2\BusinessLogic\obj\Debug\net7.0\BusinessLogic.dll
+C:\Users\charl\dev\Yumby2\BusinessLogic\obj\Debug\net7.0\refint\BusinessLogic.dll
+C:\Users\charl\dev\Yumby2\BusinessLogic\obj\Debug\net7.0\BusinessLogic.pdb
+C:\Users\charl\dev\Yumby2\BusinessLogic\obj\Debug\net7.0\ref\BusinessLogic.dll

@@ -1,0 +1,12 @@
+C:\Users\charl\dev\Yumby2\DataModels\bin\Debug\net7.0\DataModels.deps.json
+C:\Users\charl\dev\Yumby2\DataModels\bin\Debug\net7.0\DataModels.dll
+C:\Users\charl\dev\Yumby2\DataModels\bin\Debug\net7.0\DataModels.pdb
+C:\Users\charl\dev\Yumby2\DataModels\obj\Debug\net7.0\DataModels.csproj.AssemblyReference.cache
+C:\Users\charl\dev\Yumby2\DataModels\obj\Debug\net7.0\DataModels.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\charl\dev\Yumby2\DataModels\obj\Debug\net7.0\DataModels.AssemblyInfoInputs.cache
+C:\Users\charl\dev\Yumby2\DataModels\obj\Debug\net7.0\DataModels.AssemblyInfo.cs
+C:\Users\charl\dev\Yumby2\DataModels\obj\Debug\net7.0\DataModels.csproj.CoreCompileInputs.cache
+C:\Users\charl\dev\Yumby2\DataModels\obj\Debug\net7.0\DataModels.dll
+C:\Users\charl\dev\Yumby2\DataModels\obj\Debug\net7.0\refint\DataModels.dll
+C:\Users\charl\dev\Yumby2\DataModels\obj\Debug\net7.0\DataModels.pdb
+C:\Users\charl\dev\Yumby2\DataModels\obj\Debug\net7.0\ref\DataModels.dll

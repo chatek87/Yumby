@@ -13,3 +13,13 @@ C:\Users\charl\dev\Yumby2\ConsoleUI\obj\Debug\net7.0\refint\ConsoleUI.dll
 C:\Users\charl\dev\Yumby2\ConsoleUI\obj\Debug\net7.0\ConsoleUI.pdb
 C:\Users\charl\dev\Yumby2\ConsoleUI\obj\Debug\net7.0\ConsoleUI.genruntimeconfig.cache
 C:\Users\charl\dev\Yumby2\ConsoleUI\obj\Debug\net7.0\ref\ConsoleUI.dll
+C:\Users\charl\dev\Yumby2\ConsoleUI\bin\Debug\net7.0\Dapper.dll
+C:\Users\charl\dev\Yumby2\ConsoleUI\bin\Debug\net7.0\Microsoft.Data.Sqlite.dll
+C:\Users\charl\dev\Yumby2\ConsoleUI\bin\Debug\net7.0\SQLitePCLRaw.core.dll
+C:\Users\charl\dev\Yumby2\ConsoleUI\bin\Debug\net7.0\BusinessLogic.dll
+C:\Users\charl\dev\Yumby2\ConsoleUI\bin\Debug\net7.0\DataAccess.dll
+C:\Users\charl\dev\Yumby2\ConsoleUI\bin\Debug\net7.0\DataModels.dll
+C:\Users\charl\dev\Yumby2\ConsoleUI\bin\Debug\net7.0\BusinessLogic.pdb
+C:\Users\charl\dev\Yumby2\ConsoleUI\bin\Debug\net7.0\DataAccess.pdb
+C:\Users\charl\dev\Yumby2\ConsoleUI\bin\Debug\net7.0\DataModels.pdb
+C:\Users\charl\dev\Yumby2\ConsoleUI\obj\Debug\net7.0\ConsoleUI.csproj.CopyComplete

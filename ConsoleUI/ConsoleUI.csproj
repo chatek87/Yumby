@@ -11,4 +11,12 @@
     <ProjectReference Include="..\BusinessLogic\BusinessLogic.csproj" />
   </ItemGroup>
 
+	<ItemGroup>
+		<Using Include="System.Console" Static="true"/>
+	</ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Actions\" />
+  </ItemGroup>
+
 </Project>

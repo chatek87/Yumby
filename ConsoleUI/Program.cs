@@ -1,3 +1,11 @@
-﻿Console.WriteLine("Hello, World!");
+﻿Title = "Yummmmmmmmby!";
 
-Console.ReadKey();
+//1. check if db exists
+string dbPath = "mydatabase.sqlite3";
+if (!File.Exists(dbPath))
+{
+    CreateAndSeedDb(dbPath);
+}
+
+
+ReadKey();

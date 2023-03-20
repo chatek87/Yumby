@@ -1,0 +1,15 @@
+C:\Users\charl\dev\Yumby2\DataAccess\bin\Debug\net7.0\DataAccess.deps.json
+C:\Users\charl\dev\Yumby2\DataAccess\bin\Debug\net7.0\DataAccess.dll
+C:\Users\charl\dev\Yumby2\DataAccess\bin\Debug\net7.0\DataAccess.pdb
+C:\Users\charl\dev\Yumby2\DataAccess\bin\Debug\net7.0\DataModels.dll
+C:\Users\charl\dev\Yumby2\DataAccess\bin\Debug\net7.0\DataModels.pdb
+C:\Users\charl\dev\Yumby2\DataAccess\obj\Debug\net7.0\DataAccess.csproj.AssemblyReference.cache
+C:\Users\charl\dev\Yumby2\DataAccess\obj\Debug\net7.0\DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\charl\dev\Yumby2\DataAccess\obj\Debug\net7.0\DataAccess.AssemblyInfoInputs.cache
+C:\Users\charl\dev\Yumby2\DataAccess\obj\Debug\net7.0\DataAccess.AssemblyInfo.cs
+C:\Users\charl\dev\Yumby2\DataAccess\obj\Debug\net7.0\DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\charl\dev\Yumby2\DataAccess\obj\Debug\net7.0\DataAccess.csproj.CopyComplete
+C:\Users\charl\dev\Yumby2\DataAccess\obj\Debug\net7.0\DataAccess.dll
+C:\Users\charl\dev\Yumby2\DataAccess\obj\Debug\net7.0\refint\DataAccess.dll
+C:\Users\charl\dev\Yumby2\DataAccess\obj\Debug\net7.0\DataAccess.pdb
+C:\Users\charl\dev\Yumby2\DataAccess\obj\Debug\net7.0\ref\DataAccess.dll
