@@ -33,8 +33,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\charl\\dev\\Yumby\\DataAccess\\DataAccess.csproj": {
-                "projectPath": "C:\\Users\\charl\\dev\\Yumby\\DataAccess\\DataAccess.csproj"
+              "C:\\Users\\charl\\dev\\Yumby\\DataAccess\\Yumby.DataAccess.csproj": {
+                "projectPath": "C:\\Users\\charl\\dev\\Yumby\\DataAccess\\Yumby.DataAccess.csproj"
               }
             }
           }
@@ -132,12 +132,12 @@
         }
       }
     },
-    "C:\\Users\\charl\\dev\\Yumby\\DataAccess\\DataAccess.csproj": {
+    "C:\\Users\\charl\\dev\\Yumby\\DataAccess\\Yumby.DataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\charl\\dev\\Yumby\\DataAccess\\DataAccess.csproj",
-        "projectName": "DataAccess",
-        "projectPath": "C:\\Users\\charl\\dev\\Yumby\\DataAccess\\DataAccess.csproj",
+        "projectUniqueName": "C:\\Users\\charl\\dev\\Yumby\\DataAccess\\Yumby.DataAccess.csproj",
+        "projectName": "Yumby.DataAccess",
+        "projectPath": "C:\\Users\\charl\\dev\\Yumby\\DataAccess\\Yumby.DataAccess.csproj",
         "packagesPath": "C:\\Users\\charl\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\charl\\dev\\Yumby\\DataAccess\\obj\\",
         "projectStyle": "PackageReference",

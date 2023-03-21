@@ -7,4 +7,5 @@ public class Recipe
     public List<Ingredient> Ingredients { get; set; } = null!;
     public List<string> Instructions { get; set; } = null!;
     public decimal ServingsYielded { get; set; }
+
 }

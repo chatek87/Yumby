@@ -440,14 +440,14 @@
           }
         }
       },
-      "DataModels/1.0.0": {
+      "Yumby.DataModels/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
         "compile": {
-          "bin/placeholder/DataModels.dll": {}
+          "bin/placeholder/Yumby.DataModels.dll": {}
         },
         "runtime": {
-          "bin/placeholder/DataModels.dll": {}
+          "bin/placeholder/Yumby.DataModels.dll": {}
         }
       }
     }
@@ -1335,18 +1335,18 @@
         "version.txt"
       ]
     },
-    "DataModels/1.0.0": {
+    "Yumby.DataModels/1.0.0": {
       "type": "project",
-      "path": "../DataModels/DataModels.csproj",
-      "msbuildProject": "../DataModels/DataModels.csproj"
+      "path": "../DataModels/Yumby.DataModels.csproj",
+      "msbuildProject": "../DataModels/Yumby.DataModels.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net7.0": [
       "Dapper >= 2.0.123",
-      "DataModels >= 1.0.0",
       "Microsoft.Data.Sqlite.Core >= 7.0.4",
-      "System.Data.SQLite >= 1.0.117"
+      "System.Data.SQLite >= 1.0.117",
+      "Yumby.DataModels >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -1356,9 +1356,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\charl\\dev\\Yumby\\DataAccess\\DataAccess.csproj",
-      "projectName": "DataAccess",
-      "projectPath": "C:\\Users\\charl\\dev\\Yumby\\DataAccess\\DataAccess.csproj",
+      "projectUniqueName": "C:\\Users\\charl\\dev\\Yumby\\DataAccess\\Yumby.DataAccess.csproj",
+      "projectName": "Yumby.DataAccess",
+      "projectPath": "C:\\Users\\charl\\dev\\Yumby\\DataAccess\\Yumby.DataAccess.csproj",
       "packagesPath": "C:\\Users\\charl\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\charl\\dev\\Yumby\\DataAccess\\obj\\",
       "projectStyle": "PackageReference",
@@ -1382,8 +1382,8 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "C:\\Users\\charl\\dev\\Yumby\\DataModels\\DataModels.csproj": {
-              "projectPath": "C:\\Users\\charl\\dev\\Yumby\\DataModels\\DataModels.csproj"
+            "C:\\Users\\charl\\dev\\Yumby\\DataModels\\Yumby.DataModels.csproj": {
+              "projectPath": "C:\\Users\\charl\\dev\\Yumby\\DataModels\\Yumby.DataModels.csproj"
             }
           }
         }

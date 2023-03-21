@@ -440,43 +440,43 @@
           }
         }
       },
-      "BusinessLogic/1.0.0": {
+      "Yumby.BusinessLogic/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
         "dependencies": {
-          "DataAccess": "1.0.0"
+          "Yumby.DataAccess": "1.0.0"
         },
         "compile": {
-          "bin/placeholder/BusinessLogic.dll": {}
+          "bin/placeholder/Yumby.BusinessLogic.dll": {}
         },
         "runtime": {
-          "bin/placeholder/BusinessLogic.dll": {}
+          "bin/placeholder/Yumby.BusinessLogic.dll": {}
         }
       },
-      "DataAccess/1.0.0": {
+      "Yumby.DataAccess/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
         "dependencies": {
           "Dapper": "2.0.123",
-          "DataModels": "1.0.0",
           "Microsoft.Data.Sqlite.Core": "7.0.4",
-          "System.Data.SQLite": "1.0.117"
+          "System.Data.SQLite": "1.0.117",
+          "Yumby.DataModels": "1.0.0"
         },
         "compile": {
-          "bin/placeholder/DataAccess.dll": {}
+          "bin/placeholder/Yumby.DataAccess.dll": {}
         },
         "runtime": {
-          "bin/placeholder/DataAccess.dll": {}
+          "bin/placeholder/Yumby.DataAccess.dll": {}
         }
       },
-      "DataModels/1.0.0": {
+      "Yumby.DataModels/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
         "compile": {
-          "bin/placeholder/DataModels.dll": {}
+          "bin/placeholder/Yumby.DataModels.dll": {}
         },
         "runtime": {
-          "bin/placeholder/DataModels.dll": {}
+          "bin/placeholder/Yumby.DataModels.dll": {}
         }
       }
     }
@@ -1364,25 +1364,25 @@
         "version.txt"
       ]
     },
-    "BusinessLogic/1.0.0": {
+    "Yumby.BusinessLogic/1.0.0": {
       "type": "project",
-      "path": "../BusinessLogic/BusinessLogic.csproj",
-      "msbuildProject": "../BusinessLogic/BusinessLogic.csproj"
+      "path": "../BusinessLogic/Yumby.BusinessLogic.csproj",
+      "msbuildProject": "../BusinessLogic/Yumby.BusinessLogic.csproj"
     },
-    "DataAccess/1.0.0": {
+    "Yumby.DataAccess/1.0.0": {
       "type": "project",
-      "path": "../DataAccess/DataAccess.csproj",
-      "msbuildProject": "../DataAccess/DataAccess.csproj"
+      "path": "../DataAccess/Yumby.DataAccess.csproj",
+      "msbuildProject": "../DataAccess/Yumby.DataAccess.csproj"
     },
-    "DataModels/1.0.0": {
+    "Yumby.DataModels/1.0.0": {
       "type": "project",
-      "path": "../DataModels/DataModels.csproj",
-      "msbuildProject": "../DataModels/DataModels.csproj"
+      "path": "../DataModels/Yumby.DataModels.csproj",
+      "msbuildProject": "../DataModels/Yumby.DataModels.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net7.0": [
-      "BusinessLogic >= 1.0.0"
+      "Yumby.BusinessLogic >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -1392,9 +1392,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\charl\\dev\\Yumby\\ConsoleUI\\ConsoleUI.csproj",
-      "projectName": "ConsoleUI",
-      "projectPath": "C:\\Users\\charl\\dev\\Yumby\\ConsoleUI\\ConsoleUI.csproj",
+      "projectUniqueName": "C:\\Users\\charl\\dev\\Yumby\\ConsoleUI\\Yumby.ConsoleUI.csproj",
+      "projectName": "Yumby.ConsoleUI",
+      "projectPath": "C:\\Users\\charl\\dev\\Yumby\\ConsoleUI\\Yumby.ConsoleUI.csproj",
       "packagesPath": "C:\\Users\\charl\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\charl\\dev\\Yumby\\ConsoleUI\\obj\\",
       "projectStyle": "PackageReference",
@@ -1418,8 +1418,8 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "C:\\Users\\charl\\dev\\Yumby\\BusinessLogic\\BusinessLogic.csproj": {
-              "projectPath": "C:\\Users\\charl\\dev\\Yumby\\BusinessLogic\\BusinessLogic.csproj"
+            "C:\\Users\\charl\\dev\\Yumby\\BusinessLogic\\Yumby.BusinessLogic.csproj": {
+              "projectPath": "C:\\Users\\charl\\dev\\Yumby\\BusinessLogic\\Yumby.BusinessLogic.csproj"
             }
           }
         }
