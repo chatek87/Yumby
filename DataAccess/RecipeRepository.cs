@@ -17,13 +17,13 @@ public class RecipeRepository : IRecipeRepository
         _connectionString = connectionString;
     }
 
-    public IEnumerable<Recipe> GetAll()
+    public IEnumerable<Recipe> SelectAll()
     {
         using IDbConnection db = new SQLiteConnection(_connectionString);
         return db.Query<Recipe>("SELECT * FROM Recipes").ToList();
     }
 
-    public Recipe GetById(int id)
+    public Recipe SelectById(int id)
     {
         using IDbConnection db = new SQLiteConnection(_connectionString);
         return db.Query<Recipe>("SELECT * FROM Recipes WHERE RecipeId = @Id", new { Id = id }).FirstOrDefault();

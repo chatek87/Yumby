@@ -13,12 +13,12 @@ public class RecipeRepositoryyyyy : IRecipeRepository
         _dbConnection = dbConnection;        
     }
 
-    public IEnumerable<Recipe> GetAll()
+    public IEnumerable<Recipe> SelectAll()
     {
         return _dbConnection.Query<Recipe>("SELECT * FROM Recipes");
     }
 
-    public Recipe GetById(int id)
+    public Recipe SelectById(int id)
     {
         throw new NotImplementedException();
     }
