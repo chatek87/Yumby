@@ -12,24 +12,27 @@ DbInitializer.CheckForExistingDb(Globals.dbPath);
 
 RecipeService recipeService = new(Globals.connectionString);
 
-var testRecipeRepo = new RecipeRepository(Globals.connectionString);
+
+//var testRecipeRepo = new RecipeRepository(Globals.connectionString);
 
 var testRecipe = new Recipe
 {
     Name = "Test fish",
-    //ServingsYielded = 5
+    ServingsYielded = 5
 };
 
-testRecipeRepo.Insert(testRecipe);
+recipeService.AddRecipe(testRecipe);
+//testRecipeRepo.Insert(testRecipe);
 
 
-IEnumerable<Recipe> recipes = testRecipeRepo.SelectAll();
+IEnumerable<Recipe> recipes = recipeService.GetAllRecipes();
 foreach (Recipe recipe in recipes)
 {
-    WriteLine($"name: {recipe.Name} id: {recipe.RecipeId} servings yielded: {recipe.ServingsYielded}");
+    WriteLine(
+@$"name: {recipe.Name} 
+id: {recipe.RecipeId}, servings yielded: {recipe.ServingsYielded}
+");
 }
-
-
 
 
 ConsoleUtils.WaitForKeyPress();
