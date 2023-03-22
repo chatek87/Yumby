@@ -1,4 +1,7 @@
-﻿namespace Yumby.ConsoleUI;
+﻿using Yumby.BusinessLogic;
+using Yumby.DataModels;
+
+namespace Yumby.ConsoleUI;
 
 public static class RecipeSubMenu
 {
@@ -32,7 +35,7 @@ public static class RecipeSubMenu
                 case 1:
                     //change serving size
                     Console.Clear();
-                    var myConvertedRecipe = Utility.ChangeServingSize(selectedRecipe);
+                    var myConvertedRecipe = ConversionUtility.ChangeServingSize(selectedRecipe);
                     Console.Clear();
                     RecipeHelper.DisplayRecipe(myConvertedRecipe);
 
