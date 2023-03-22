@@ -16,16 +16,11 @@ public static class ExitMenu
         switch (selectionIndex)
         {
             case 0:
-                ExitProgram();
+                ConsoleUtils.QuitConsole();                
                 break;
             case 1:
                 MainMenu.Start();
                 break;
         }
-    }
-    
-    private static void ExitProgram()
-    {
-        Environment.Exit(0);
     }
 }

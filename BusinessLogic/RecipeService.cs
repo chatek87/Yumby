@@ -13,10 +13,10 @@ public class RecipeService
         _recipeRepository = new RecipeRepository(connectionString);
     }
 
-    public RecipeService(IRecipeRepository recipeRepository)
-    {
-        _recipeRepository = recipeRepository;        
-    }
+    //public RecipeService(IRecipeRepository recipeRepository)
+    //{
+    //    _recipeRepository = recipeRepository;        
+    //}
 
     public IEnumerable<Recipe> GetAllRecipes()
     {

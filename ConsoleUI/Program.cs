@@ -8,7 +8,7 @@ CursorVisible = false;
 
 DbInitializer.CheckForExistingDb(Globals.dbPath);
 
-//MainMenu.Start();
+MainMenu.Start();
 
 RecipeService recipeService = new(Globals.connectionString);
 

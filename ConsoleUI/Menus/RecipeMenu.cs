@@ -1,14 +1,33 @@
 ﻿using System.Text.Json;
+using Yumby.BusinessLogic;
 using Yumby.DataModels;
+using Yumby.DataAccess;
 
 namespace Yumby.ConsoleUI;
 
 public static class RecipeMenu
 {
     public static Dictionary<string, Recipe> RecipeBook = new Dictionary<string, Recipe>();
+    public static IEnumerable<Recipe> recipeResults;
+
     public static void Start()
     {
-         try
+        if (RecipeBook.Count == 0) 
+        {
+            RecipeService recipeService = new(Globals.connectionString);
+            recipeResults = recipeService.GetAllRecipes();
+
+            foreach (Recipe recipe in recipeResults)
+            {
+                RecipeBook.Add(recipe.Name, recipe);
+            }
+        }
+        //catch (Exception ex)
+        //{
+        //    WriteLine("failed to load recipes");
+        //    throw;
+        //}
+/*         try
          {
              RecipeBook = ReadFromFilePopulateDictionary();
          }
@@ -20,7 +39,7 @@ public static class RecipeMenu
              Directory.CreateDirectory(jsonDirectory);
              File.WriteAllText(jsonFilePath, jsonString);
              throw;
-         }
+         }*/
          Run();
     }
     private static void Run()
