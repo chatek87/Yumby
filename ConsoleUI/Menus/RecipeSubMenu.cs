@@ -9,7 +9,7 @@ public static class RecipeSubMenu
     {
         Run(recipe);
     }
-    
+
     private static void Run(Recipe recipeInput)
     {
         while (true)
@@ -25,6 +25,7 @@ public static class RecipeSubMenu
                 case 0:
                     //view recipe
                     Console.Clear();
+                    //GetRecipeAction.DisplayRecipe(selectedRecipe);
                     RecipeHelper.DisplayRecipe(selectedRecipe);
 
                     Console.WriteLine("\n");

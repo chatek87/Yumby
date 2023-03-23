@@ -43,7 +43,8 @@ public static class DbInitializer
         connection.Execute(@"CREATE TABLE Instructions (
                             InstructionId INTEGER PRIMARY KEY AUTOINCREMENT,
                             RecipeId INTEGER,
-                            Step TEXT,
+                            StepNumber TEXT,
+                            Description TEXT,
                             FOREIGN KEY(RecipeId) REFERENCES Recipes(RecipeId)
                         )");
 
@@ -75,7 +76,7 @@ public static class DbInitializer
                             (3, 'Dried Basil', 1, 'tbsp')
                         ");
 
-        connection.Execute(@"INSERT INTO Instructions (RecipeId, Step) VALUES
+        connection.Execute(@"INSERT INTO Instructions (RecipeId, Description) VALUES
                             (1, 'Preheat the oven to 350 degrees F.'),
                             (1, 'In a large bowl, whisk together the flour, sugar, cocoa powder, baking soda, baking powder, and salt.'),
                             (1, 'In a separate bowl, whisk together the eggs, buttermilk, vegetable oil, and vanilla extract.'),

@@ -10,7 +10,7 @@ DbInitializer.CheckForExistingDb(Globals.dbPath);
 
 MainMenu.Start();
 
-RecipeService recipeService = new(Globals.connectionString);
+/*RecipeService recipeService = new(Globals.connectionString);
 
 
 //var testRecipeRepo = new RecipeRepository(Globals.connectionString);
@@ -35,4 +35,4 @@ id: {recipe.RecipeId}, servings yielded: {recipe.ServingsYielded}
 }
 
 
-ConsoleUtils.WaitForKeyPress();
+ConsoleUtils.WaitForKeyPress();*/

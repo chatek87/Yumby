@@ -9,37 +9,21 @@ public static class RecipeMenu
 {
     public static Dictionary<string, Recipe> RecipeBook = new Dictionary<string, Recipe>();
     public static IEnumerable<Recipe> recipeResults;
+    public static RecipeService recipeService = new(Globals.connectionString);
 
     public static void Start()
     {
         if (RecipeBook.Count == 0) 
         {
-            RecipeService recipeService = new(Globals.connectionString);
+            //RecipeService recipeService = new(Globals.connectionString);
             recipeResults = recipeService.GetAllRecipes();
 
             foreach (Recipe recipe in recipeResults)
             {
-                RecipeBook.Add(recipe.Name, recipe);
+                RecipeBook.Add(recipe.Name.ToUpper(), recipe);
             }
         }
-        //catch (Exception ex)
-        //{
-        //    WriteLine("failed to load recipes");
-        //    throw;
-        //}
-/*         try
-         {
-             RecipeBook = ReadFromFilePopulateDictionary();
-         }
-         catch (Exception e)
-         {
-             var jsonString = JsonSerializer.Serialize(RecipeBook);
-             var jsonDirectory = Path.Combine(Directory.GetCurrentDirectory(), "data");
-             var jsonFilePath = Path.Combine(jsonDirectory, "RecipeBook.json");
-             Directory.CreateDirectory(jsonDirectory);
-             File.WriteAllText(jsonFilePath, jsonString);
-             throw;
-         }*/
+
          Run();
     }
     private static void Run()
@@ -78,10 +62,12 @@ public static class RecipeMenu
                 //enter new recipe
                 Console.Clear();
                 Console.WriteLine("You selected ENTER NEW RECIPE");
-                var tempRecipe = RecipeHelper.CreateNewRecipe();
+                var tempRecipe = CreateNewRecipeAction.CreateNewRecipe();
+                //var tempRecipe = RecipeHelper.CreateNewRecipe();
                 string tempName = tempRecipe.Name;
                 RecipeBook.Add(tempName ,tempRecipe);
-                WriteToFile(RecipeBook);
+                recipeService.AddRecipe(tempRecipe);
+                //WriteToFile(RecipeBook);
 
                 Console.WriteLine("Press any key to return to previous menu");
                 Console.ReadKey(true);
@@ -109,7 +95,7 @@ public static class RecipeMenu
         }
     }
 
-    public static Dictionary<String, Recipe> ReadFromFilePopulateDictionary()
+/*    public static Dictionary<String, Recipe> ReadFromFilePopulateDictionary()
     {
         var jsonDirectory = Path.Combine(Directory.GetCurrentDirectory(), "data");
         var jsonFilePath = Path.Combine(jsonDirectory, "RecipeBook.json");
@@ -124,5 +110,5 @@ public static class RecipeMenu
         var jsonDirectory = Path.Combine(Directory.GetCurrentDirectory(), "data");
         var jsonFilePath = Path.Combine(jsonDirectory, "RecipeBook.json");
         File.WriteAllText(jsonFilePath, jsonString);
-    }
+    }*/
 }
