@@ -25,8 +25,8 @@ public static class RecipeSubMenu
                 case 0:
                     //view recipe
                     Console.Clear();
-                    //GetRecipeAction.DisplayRecipe(selectedRecipe);
-                    RecipeHelper.DisplayRecipe(selectedRecipe);
+                    DisplayRecipeAction.DisplayRecipe(selectedRecipe);
+                    //RecipeHelper.DisplayRecipe(selectedRecipe);
 
                     Console.WriteLine("\n");
                     Console.WriteLine("Press any key to return to previous menu");
@@ -38,7 +38,8 @@ public static class RecipeSubMenu
                     Console.Clear();
                     var myConvertedRecipe = ConversionUtility.ChangeServingSize(selectedRecipe);
                     Console.Clear();
-                    RecipeHelper.DisplayRecipe(myConvertedRecipe);
+                    DisplayRecipeAction.DisplayRecipe(selectedRecipe);
+                    //RecipeHelper.DisplayRecipe(myConvertedRecipe);
 
                     Console.WriteLine("\n");
                     Console.WriteLine("Press any key to return to previous menu");
