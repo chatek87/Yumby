@@ -17,17 +17,49 @@ public class RecipeRepository : IRecipeRepository
         _connectionString = connectionString;
     }
 
+
     public IEnumerable<Recipe> SelectAll()
     {
         using IDbConnection db = new SQLiteConnection(_connectionString);
         return db.Query<Recipe>("SELECT * FROM Recipes").ToList();
     }
 
+
+    public Recipe GetById(int recipeId)
+    {
+        using IDbConnection db = new SQLiteConnection(_connectionString);
+        const string sql = @"
+            SELECT RecipeId, Name, ServingsYielded
+            FROM Recipes
+            WHERE RecipeId = @recipeId;
+
+            SELECT IngredientId, Name, Quantity, Unit
+            FROM Ingredients
+            WHERE RecipeId = @recipeId;
+
+            SELECT StepNumber, Description
+            FROM Instructions
+            WHERE RecipeId = @recipeId;
+        ";
+
+        using var result = db.QueryMultiple(sql, new { recipeId });
+        var recipe = result.Read<Recipe>().SingleOrDefault();
+
+        if (recipe != null)
+        {
+            recipe.Ingredients = result.Read<Ingredient>().ToList();
+            recipe.Instructions = result.Read<string>().ToList();
+        }
+        return recipe;
+    }
+
+
     public Recipe SelectById(int id)
     {
         using IDbConnection db = new SQLiteConnection(_connectionString);
         return db.Query<Recipe>("SELECT * FROM Recipes WHERE RecipeId = @Id", new { Id = id }).FirstOrDefault();
     }
+
 
     public void Insert(Recipe recipe)
     {
@@ -45,6 +77,7 @@ public class RecipeRepository : IRecipeRepository
         }
     }
 
+
     public void Update(Recipe recipe)
     {
         using IDbConnection db = new SQLiteConnection(_connectionString);
@@ -55,11 +88,13 @@ public class RecipeRepository : IRecipeRepository
         InsertInstructions(recipe);
     }
 
+
     public void Delete(int id)
     {
         using IDbConnection db = new SQLiteConnection(_connectionString);
         db.Execute("DELETE FROM Recipes WHERE RecipeId = @Id", new { Id = id });
     }
+
 
     private void InsertIngredients(Recipe recipe)
     {
@@ -70,6 +105,7 @@ public class RecipeRepository : IRecipeRepository
             db.Execute("INSERT INTO Ingredients (RecipeId, Name, Quantity, Unit) VALUES (@RecipeId, @Name, @Quantity, @Unit)", ingredient);
         }
     }
+
 
     private void InsertInstructions(Recipe recipe)
     {
@@ -82,11 +118,13 @@ public class RecipeRepository : IRecipeRepository
         }
     }
 
+
     private void DeleteIngredients(int recipeId)
     {
         using IDbConnection db = new SQLiteConnection(_connectionString);
         db.Execute("DELETE FROM Ingredients WHERE RecipeId = @RecipeId", new { RecipeId = recipeId });
     }
+
 
     private void DeleteInstructions(int recipeId)
     {
