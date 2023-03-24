@@ -55,12 +55,12 @@ public class RecipeRepository : IRecipeRepository
                                                .ToDictionary(g => g.Key, g => g.ToList());
 
         // Query the database for all recipes' instructions
-        string instructionsQuery = "SELECT RecipeId, Text FROM Instructions";
-        var instructions = db.Query<(int RecipeId, string Text)>(instructionsQuery);
+        string instructionsQuery = "SELECT RecipeId, Description FROM Instructions";
+        var instructions = db.Query<(int RecipeId, string Description)>(instructionsQuery);
 
         // Group the instructions by recipe ID
         var instructionsByRecipeId = instructions.GroupBy(i => i.RecipeId)
-                                                  .ToDictionary(g => g.Key, g => g.Select(i => i.Text).ToList());
+                                                  .ToDictionary(g => g.Key, g => g.Select(i => i.Description).ToList());
 
         // Create a dictionary of recipes
         var recipeDictionary = new Dictionary<int, Recipe>();
