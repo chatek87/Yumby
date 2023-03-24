@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.SQLite;
 using Dapper;
 using Yumby.DataModels;
+using System.Data.Common;
 
 namespace Yumby.DataAccess;
 
@@ -17,11 +18,105 @@ public class RecipeRepository : IRecipeRepository
         _connectionString = connectionString;
     }
 
+    public IEnumerable<Recipe> SelectAllRecipesPopulateDictionary() //method to join recipes/ingredients. TODO: Add instructions join.
+    {
+        using IDbConnection db = new SQLiteConnection(_connectionString);
+        const string query = @"
+        SELECT r.RecipeId, r.Name, r.ServingsYielded,
+               i.IngredientId, i.Name, i.Quantity, i.Unit
+        FROM Recipes r
+        LEFT JOIN Ingredients i ON r.RecipeId = i.RecipeId";
+        var recipes = new Dictionary<int, Recipe>();
+        db.Query<Recipe, Ingredient, Recipe>(query, (recipe, ingredient) =>
+        {
+            if (!recipes.TryGetValue(recipe.RecipeId, out var recipeEntry))
+            {
+                recipeEntry = recipe;
+                recipeEntry.Ingredients = new List<Ingredient>();
+                recipes.Add(recipeEntry.RecipeId, recipeEntry);
+            }
+            recipeEntry.Ingredients.Add(ingredient);
+            return recipeEntry;
+        }, splitOn: "IngredientId");
+        return recipes.Values;
+    }
+
+    public Dictionary<int, Recipe> GetAllRecipes()
+    {
+        using IDbConnection db = new SQLiteConnection(_connectionString);
+        // Query the database for all recipes and their ingredients
+        string recipeQuery = "SELECT RecipeId, Name, ServingsYielded FROM Recipes";
+        string ingredientsQuery = "SELECT RecipeId, Name, Quantity, Unit FROM Ingredients";
+        var recipes = db.Query<Recipe>(recipeQuery);
+        var ingredients = db.Query<Ingredient>(ingredientsQuery);
+
+        // Group the ingredients by recipe ID
+        var ingredientsByRecipeId = ingredients.GroupBy(i => i.RecipeId)
+                                               .ToDictionary(g => g.Key, g => g.ToList());
+
+        // Query the database for all recipes' instructions
+        string instructionsQuery = "SELECT RecipeId, Text FROM Instructions";
+        var instructions = db.Query<(int RecipeId, string Text)>(instructionsQuery);
+
+        // Group the instructions by recipe ID
+        var instructionsByRecipeId = instructions.GroupBy(i => i.RecipeId)
+                                                  .ToDictionary(g => g.Key, g => g.Select(i => i.Text).ToList());
+
+        // Create a dictionary of recipes
+        var recipeDictionary = new Dictionary<int, Recipe>();
+        foreach (var recipe in recipes)
+        {
+            // Create a new recipe object
+            var newRecipe = new Recipe
+            {
+                RecipeId = recipe.RecipeId,
+                Name = recipe.Name,
+                ServingsYielded = recipe.ServingsYielded,
+                Ingredients = ingredientsByRecipeId.GetValueOrDefault(recipe.RecipeId, new List<Ingredient>()),
+                Instructions = instructionsByRecipeId.GetValueOrDefault(recipe.RecipeId, new List<string>())
+            };
+
+            // Add the recipe to the dictionary
+            recipeDictionary.Add(recipe.RecipeId, newRecipe);
+        }
+
+        // Return the dictionary of recipes
+        return recipeDictionary;
+    }
 
     public IEnumerable<Recipe> SelectAll()
     {
         using IDbConnection db = new SQLiteConnection(_connectionString);
         return db.Query<Recipe>("SELECT * FROM Recipes").ToList();
+    }
+
+    public Recipe GetRecipe(int recipeId)
+    {
+        using IDbConnection db = new SQLiteConnection(_connectionString);
+        // Query the database for the recipe and its ingredients
+        string recipeQuery = "SELECT RecipeId, Name, ServingsYielded FROM Recipes WHERE RecipeId = @RecipeId";
+        string ingredientsQuery = "SELECT RecipeId, Name, Quantity, Unit FROM Ingredients WHERE RecipeId = @RecipeId";
+        var recipe = db.QuerySingleOrDefault<Recipe>(recipeQuery, new { RecipeId = recipeId });
+        var ingredients = db.Query<Ingredient>(ingredientsQuery, new { RecipeId = recipeId });
+
+        // If no recipe was found, return null
+        if (recipe == null)
+        {
+            return null;
+        }
+
+        // Add the ingredients to the recipe object
+        recipe.Ingredients = ingredients.ToList();
+
+        // Query the database for the recipe's instructions
+        string instructionsQuery = "SELECT Text FROM Instructions WHERE RecipeId = @RecipeId";
+        var instructions = db.Query<string>(instructionsQuery, new { RecipeId = recipeId });
+
+        // Add the instructions to the recipe object
+        recipe.Instructions = instructions.ToList();
+
+        // Return the recipe object
+        return recipe;
     }
 
 
