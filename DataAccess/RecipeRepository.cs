@@ -84,11 +84,57 @@ public class RecipeRepository : IRecipeRepository
         return recipeDictionary;
     }
 
+
+    public async Task<Dictionary<int, Recipe>> GetAllRecipesAsync()
+    {
+        using IDbConnection db = new SQLiteConnection(_connectionString);
+        // Query the database for all recipes and their ingredients
+        string recipeQuery = "SELECT RecipeId, Name, ServingsYielded FROM Recipes";
+        string ingredientsQuery = "SELECT RecipeId, Name, Quantity, Unit FROM Ingredients";
+        var recipes = await db.QueryAsync<Recipe>(recipeQuery);
+        var ingredients = await db.QueryAsync<Ingredient>(ingredientsQuery);
+
+        // Group the ingredients by recipe ID
+        var ingredientsByRecipeId = ingredients.GroupBy(i => i.RecipeId)
+                                               .ToDictionary(g => g.Key, g => g.ToList());
+
+        // Query the database for all recipes' instructions
+        string instructionsQuery = "SELECT RecipeId, Text FROM Instructions";
+        var instructions = await db.QueryAsync<(int RecipeId, string Text)>(instructionsQuery);
+
+        // Group the instructions by recipe ID
+        var instructionsByRecipeId = instructions.GroupBy(i => i.RecipeId)
+                                                  .ToDictionary(g => g.Key, g => g.Select(i => i.Text).ToList());
+
+        // Create a dictionary of recipes
+        var recipeDictionary = new Dictionary<int, Recipe>();
+        foreach (var recipe in recipes)
+        {
+            // Create a new recipe object
+            var newRecipe = new Recipe
+            {
+                RecipeId = recipe.RecipeId,
+                Name = recipe.Name,
+                ServingsYielded = recipe.ServingsYielded,
+                Ingredients = ingredientsByRecipeId.GetValueOrDefault(recipe.RecipeId, new List<Ingredient>()),
+                Instructions = instructionsByRecipeId.GetValueOrDefault(recipe.RecipeId, new List<string>())
+            };
+
+            // Add the recipe to the dictionary
+            recipeDictionary.Add(recipe.RecipeId, newRecipe);
+        }
+
+        // Return the dictionary of recipes
+        return recipeDictionary;
+    }
+
+
     public IEnumerable<Recipe> SelectAll()
     {
         using IDbConnection db = new SQLiteConnection(_connectionString);
         return db.Query<Recipe>("SELECT * FROM Recipes").ToList();
     }
+
 
     public Recipe GetRecipe(int recipeId)
     {
