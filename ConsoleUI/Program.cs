@@ -10,8 +10,8 @@ DbInitializer.CheckForExistingDb(Globals.dbPath);
 
 var recipeRepo = new RecipeRepository(Globals.connectionString);
 
-Dictionary<int, Recipe> testDictionary = new Dictionary<int, Recipe>();
-testDictionary = recipeRepo.GetAllRecipes();
+
+var testDictionary = await recipeRepo.GetAllRecipesAsync();
 foreach (var recipe in testDictionary)
 {
     Console.WriteLine(recipe.Value.Name);
