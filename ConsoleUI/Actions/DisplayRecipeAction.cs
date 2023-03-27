@@ -11,7 +11,7 @@ public static class DisplayRecipeAction
 
         foreach (var ingredient in recipe.Ingredients)
         {
-            Console.WriteLine($"{ingredient.Quantity} {ingredient.Unit} {ingredient.Name}");
+            Console.WriteLine($"{ingredient.Quantity} {ingredient.UnitOfMeasurement} {ingredient.Name}");
         }
         Console.WriteLine(" ");
 

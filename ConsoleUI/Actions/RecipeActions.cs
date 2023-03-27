@@ -34,7 +34,7 @@ public static class RecipeActions
         }
 
         Console.Write("Enter ingredient unit: ");
-        ingredient.Unit = Console.ReadLine();
+        ingredient.UnitOfMeasurement = Console.ReadLine();
 
         return ingredient;
 

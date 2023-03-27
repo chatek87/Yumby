@@ -1,10 +1,7 @@
-using System.Collections.Generic;
-using System.Linq;
+using Dapper;
 using System.Data;
 using System.Data.SQLite;
-using Dapper;
 using Yumby.DataModels;
-using System.Data.Common;
 
 namespace Yumby.DataAccess;
 
@@ -18,12 +15,13 @@ public class RecipeRepository : IRecipeRepository
         _connectionString = connectionString;
     }
 
-    public IEnumerable<Recipe> SelectAllRecipesPopulateDictionary() //method to join recipes/ingredients. TODO: Add instructions join.
+
+    public IEnumerable<Recipe> SelectAllRecipesPopulateDictionary() //TODO: Add instructions join.
     {
         using IDbConnection db = new SQLiteConnection(_connectionString);
         const string query = @"
         SELECT r.RecipeId, r.Name, r.ServingsYielded,
-               i.IngredientId, i.Name, i.Quantity, i.Unit
+               i.IngredientId, i.Name, i.Quantity, i.UnitOfMeasurement
         FROM Recipes r
         LEFT JOIN Ingredients i ON r.RecipeId = i.RecipeId";
         var recipes = new Dictionary<int, Recipe>();
@@ -41,12 +39,13 @@ public class RecipeRepository : IRecipeRepository
         return recipes.Values;
     }
 
+
     public Dictionary<int, Recipe> GetAllRecipes()
     {
         using IDbConnection db = new SQLiteConnection(_connectionString);
         // Query the database for all recipes and their ingredients
         string recipeQuery = "SELECT RecipeId, Name, ServingsYielded FROM Recipes";
-        string ingredientsQuery = "SELECT RecipeId, Name, Quantity, Unit FROM Ingredients";
+        string ingredientsQuery = "SELECT RecipeId, Name, Quantity, UnitOfMeasurement FROM Ingredients";
         var recipes = db.Query<Recipe>(recipeQuery);
         var ingredients = db.Query<Ingredient>(ingredientsQuery);
 
@@ -90,7 +89,7 @@ public class RecipeRepository : IRecipeRepository
         using IDbConnection db = new SQLiteConnection(_connectionString);
         // Query the database for all recipes and their ingredients
         string recipeQuery = "SELECT RecipeId, Name, ServingsYielded FROM Recipes";
-        string ingredientsQuery = "SELECT RecipeId, Name, Quantity, Unit FROM Ingredients";
+        string ingredientsQuery = "SELECT RecipeId, Name, Quantity, UnitOfMeasurement FROM Ingredients";
         var recipes = await db.QueryAsync<Recipe>(recipeQuery);
         var ingredients = await db.QueryAsync<Ingredient>(ingredientsQuery);
 
@@ -141,7 +140,7 @@ public class RecipeRepository : IRecipeRepository
         using IDbConnection db = new SQLiteConnection(_connectionString);
         // Query the database for the recipe and its ingredients
         string recipeQuery = "SELECT RecipeId, Name, ServingsYielded FROM Recipes WHERE RecipeId = @RecipeId";
-        string ingredientsQuery = "SELECT RecipeId, Name, Quantity, Unit FROM Ingredients WHERE RecipeId = @RecipeId";
+        string ingredientsQuery = "SELECT RecipeId, Name, Quantity, UnitOfMeasurement FROM Ingredients WHERE RecipeId = @RecipeId";
         var recipe = db.QuerySingleOrDefault<Recipe>(recipeQuery, new { RecipeId = recipeId });
         var ingredients = db.Query<Ingredient>(ingredientsQuery, new { RecipeId = recipeId });
 
@@ -165,6 +164,7 @@ public class RecipeRepository : IRecipeRepository
         return recipe;
     }
 
+    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\\
 
     public Recipe GetById(int recipeId)
     {
@@ -174,7 +174,7 @@ public class RecipeRepository : IRecipeRepository
             FROM Recipes
             WHERE RecipeId = @recipeId;
 
-            SELECT IngredientId, Name, Quantity, Unit
+            SELECT IngredientId, Name, Quantity, UnitOfMeasurement
             FROM Ingredients
             WHERE RecipeId = @recipeId;
 
@@ -243,7 +243,7 @@ public class RecipeRepository : IRecipeRepository
         foreach (var ingredient in recipe.Ingredients)
         {
             ingredient.RecipeId = recipe.RecipeId;
-            db.Execute("INSERT INTO Ingredients (RecipeId, Name, Quantity, Unit) VALUES (@RecipeId, @Name, @Quantity, @Unit)", ingredient);
+            db.Execute("INSERT INTO Ingredients (RecipeId, Name, Quantity, UnitOfMeasurement) VALUES (@RecipeId, @Name, @Quantity, @UnitOfMeasurement)", ingredient);
         }
     }
 

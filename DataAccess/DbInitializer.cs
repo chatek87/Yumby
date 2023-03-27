@@ -36,7 +36,7 @@ public static class DbInitializer
                             RecipeId INTEGER,
                             Name TEXT,
                             Quantity DECIMAL,
-                            Unit TEXT,
+                            UnitOfMeasurement TEXT,
                             FOREIGN KEY(RecipeId) REFERENCES Recipes(RecipeId)
                         )");
 
@@ -56,7 +56,7 @@ public static class DbInitializer
                         ");
 
         // Insert some sample ingredients into the Ingredients table
-        connection.Execute(@"INSERT INTO Ingredients (RecipeId, Name, Quantity, Unit) VALUES
+        connection.Execute(@"INSERT INTO Ingredients (RecipeId, Name, Quantity, UnitOfMeasurement) VALUES
                             (1, 'Flour', 2.5, 'Cups'),
                             (1, 'Sugar', 2, 'Cups'),
                             (1, 'Cocoa Powder', 1, 'Cups'),
