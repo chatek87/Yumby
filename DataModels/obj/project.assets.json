@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\charl\\dev\\Yumby\\DataModels\\Yumby.DataModels.csproj",
+      "projectUniqueName": "C:\\Users\\charl\\dev\\yumby\\DataModels\\Yumby.DataModels.csproj",
       "projectName": "Yumby.DataModels",
-      "projectPath": "C:\\Users\\charl\\dev\\Yumby\\DataModels\\Yumby.DataModels.csproj",
+      "projectPath": "C:\\Users\\charl\\dev\\yumby\\DataModels\\Yumby.DataModels.csproj",
       "packagesPath": "C:\\Users\\charl\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\charl\\dev\\Yumby\\DataModels\\obj\\",
+      "outputPath": "C:\\Users\\charl\\dev\\yumby\\DataModels\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
