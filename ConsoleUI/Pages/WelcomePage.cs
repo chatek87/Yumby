@@ -1,6 +1,9 @@
-﻿namespace Yumby.ConsoleUI;
+using System.Security.Cryptography.X509Certificates;
+using Yumby.DataAccess;
 
-public static class MainMenu
+namespace Yumby.ConsoleUI;
+
+public class WelcomePage
 {
     public static void Start()
     {
@@ -10,14 +13,14 @@ public static class MainMenu
     private static void Run()
     {
         string prompt = Banner.YumbyArt() + "welcome to yumby!";
-        string[] options = { "my recipes", "about", "exit" };
-        var mainMenu = new Menu(prompt, options);
-        int selectionIndex = mainMenu.Run();
+        List<string> options = new List<string>{ "my recipes", "about", "exit" };
+        var welcomePage = new Page(prompt, options);
+        int selectionIndex = welcomePage.Run();
 
         switch (selectionIndex)
         {
             case 0:
-                RecipeMenu.Start();
+                RecipeBookPage.Start();
                 break;
             case 1:
                 DisplayAboutInfo();
@@ -31,7 +34,7 @@ public static class MainMenu
     private static void DisplayAboutInfo()
     {
         Console.Clear();
-        Console.WriteLine("Yumby is a personal recipe keeper");
+        Console.WriteLine("yumby is a personal recipe keeper");
         Console.WriteLine("use it to search, store, edit, and find recipes");
         Console.WriteLine("\n");
         Console.WriteLine("Press any key to return to the Main Menu");

@@ -3,10 +3,10 @@ namespace Yumby.ConsoleUI;
 public class Page
 {
     private int _selectionIndex;
-    private string[] _options;
+    private List<string> _options;
     private string _prompt;
 
-    public Page(string prompt, string[] options)
+    public Page(string prompt, List<string> options)
     {
         _prompt = prompt;
         _options = options;
@@ -17,7 +17,7 @@ public class Page
     {
         WriteLine(_prompt);
         //WriteLine(" ");
-        for (int i = 0; i < _options.Length; i++)
+        for (int i = 0; i < _options.Count; i++)
         {
             string currentOption = _options[i];
             string prefix;
@@ -54,13 +54,13 @@ public class Page
                 _selectionIndex--;
                 if (_selectionIndex == -1)
                 {
-                    _selectionIndex = _options.Length - 1;
+                    _selectionIndex = _options.Count - 1;
                 }
             }
             else if (keyPressed == ConsoleKey.DownArrow)
             {
                 _selectionIndex++;
-                if (_selectionIndex == _options.Length)
+                if (_selectionIndex == _options.Count)
                 {
                     _selectionIndex = 0;
                 }
