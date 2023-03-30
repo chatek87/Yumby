@@ -13,29 +13,32 @@ public static class SearchPage
         List<string> options = new List<string> { "search recipe by name", "search by ingredient", "go back" };    //add "search by category" functionality? -> tags for recipe category ie breakfast, italian, gluten free, etc.
         var searchPageMenu = new Menu(prompt, options);
         int selectionIndex = searchPageMenu.Run();
-        switch (selectionIndex)
+        while (true)
         {
-            case 0:
-                var searchedRecipe = GetRecipeAction.GetRecipeByName();
-                if (searchedRecipe != null)
-                {
-                    SelectedRecipePage.Start(searchedRecipe);
-                }
-                break;
-            case 1:
-                var recipesContainingSearchedIngredient = GetRecipeAction.GetRecipesByIngredient();
-                if (recipesContainingSearchedIngredient != null)
-                {
-                    foreach (var recipe in recipesContainingSearchedIngredient)
+            switch (selectionIndex)
+            {
+                case 0:
+                    var searchedRecipe = GetRecipeAction.GetRecipeByName();
+                    if (searchedRecipe != null)
                     {
-                        Console.WriteLine(recipe.Name);
+                        SelectedRecipePage.Start(searchedRecipe);
                     }
-                    ConsoleUtils.WaitForKeyPress();
-                }
-                break;
-            case 2:
-                break;
+                    break;
+                case 1:
+                    var recipesContainingSearchedIngredient = GetRecipeAction.GetRecipesByIngredient();
+                    if (recipesContainingSearchedIngredient != null)
+                    {
+                        foreach (var recipe in recipesContainingSearchedIngredient)
+                        {
+                            Console.WriteLine(recipe.Name);
+                        }
+                        ConsoleUtils.WaitForKeyPress();
+                    }
+                    break;
+                case 2:
+                    break;
+            }
+            return;
         }
-        //return;
     }
 }

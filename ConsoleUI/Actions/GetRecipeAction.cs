@@ -37,7 +37,7 @@ public static class GetRecipeAction
 
         var recipesContainingIngredient = recipeRepo.GetByIngredient(searchedIngredientName);
 
-        if (recipesContainingIngredient == null)
+        if (recipesContainingIngredient.Count == 0)
         {
             Console.WriteLine($"Sorry, no recipes containing {searchedIngredientName}");
             ConsoleUtils.WaitForKeyPress();

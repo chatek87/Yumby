@@ -13,32 +13,36 @@ public static class AllRecipesPage
 
     private static void Run()
     {
-        var recipeRepo = new RecipeRepository(Globals.connectionString);
+        while (true) 
+        {
+            var recipeRepo = new RecipeRepository(Globals.connectionString);
         
-        var recipes = recipeRepo.GetAllRecipes();
-        var sortedRecipes = recipes.OrderBy(r => r.Value.Name);
+            var recipes = recipeRepo.GetAllRecipes();
+            var sortedRecipes = recipes.OrderBy(r => r.Value.Name);
 
-        var sortedRecipesList = sortedRecipes.ToList();
-        List<string> options = new List<string>();
+            var sortedRecipesList = sortedRecipes.ToList();
+            List<string> options = new List<string>();
        
-        foreach (var recipe in sortedRecipes)
-        {
-            options.Add(recipe.Value.Name);
-        }
-        options.Add("go back");
+            foreach (var recipe in sortedRecipes)
+            {
+                options.Add(recipe.Value.Name);
+            }
+            options.Add("go back");
         
-        Menu allRecipesPageMenu = new Menu("<<recipe book>>", options);
-        int selectionIndex = allRecipesPageMenu.Run();
+            Menu allRecipesPageMenu = new Menu("<<recipe book>>", options);
+            int selectionIndex = allRecipesPageMenu.Run();
 
-        //selection logic
-        if (selectionIndex == options.Count - 1)
-        {
-            WelcomePage.Start();
-        }
-        else
-        {
-            var selectedRecipe = sortedRecipesList[selectionIndex].Value;
-            SelectedRecipePage.Start(selectedRecipe); 
+            //selection logic
+            if (selectionIndex == options.Count - 1)
+            {
+                return;
+                //WelcomePage.Start();
+            }
+            else
+            {
+                var selectedRecipe = sortedRecipesList[selectionIndex].Value;
+                SelectedRecipePage.Start(selectedRecipe); 
+            }
         }
     }
 }

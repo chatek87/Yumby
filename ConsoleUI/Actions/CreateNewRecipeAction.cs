@@ -17,7 +17,7 @@ public static class CreateNewRecipeAction
         string[] options1 = { "add another ingredient", "done adding ingredients" };
         Console.WriteLine(prompt1);
         myRecipe.Ingredients = new List<Ingredient>();
-        myRecipe.Ingredients.Add(RecipeActions.AddNewIngredient());
+        myRecipe.Ingredients.Add(myRecipe(RecipeActions.AddNewIngredient()));
         //myRecipe.Ingredients.Add(myRecipe.AddNewIngredient());  // ***TODO: this functionality needs to be moved to RecipeService class, and hooked up to corresponding 
         // methods in the RecipeRepository/IRecipeRepository. 
         // SAME goes for AddInstructionsLine();

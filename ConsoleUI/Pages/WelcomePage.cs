@@ -9,40 +9,42 @@ public static class WelcomePage
 
     private static void Run()
     {
-        string prompt = Banner.YumbyArt() + "welcome to yumby!\n";
-        List<string> options = new List<string>{ "all recipes", "search", "add recipe", "edit recipe", "delete recipe", "about", "exit" };
-        var welcomePageMenu = new Menu(prompt, options);
-        int selectionIndex = welcomePageMenu.Run();
-
-        switch (selectionIndex)
+        while (true)
         {
-            case 0:
-                // all recipes
-                AllRecipesPage.Start();
-                break;
-            case 1:
-                // search
-                SearchPage.Start();
-                break;
-            case 2:
-                //add recipe
-                break;
-            case 3:
-                // edit recipe
-                break;
-            case 4:
-                // delete recipe
-                break; 
-            case 5:
-                // about
-                DisplayAboutInfo();
-                break;
-            case 6:
-                // exit 
-                ExitPage.Start();
-                break;
+            string prompt = Banner.YumbyBlockLetters() + "welcome to yumby!\n";
+            List<string> options = new List<string> { "all recipes", "search", "add recipe", "edit recipe", "delete recipe", "about", "exit" };
+            var welcomePageMenu = new Menu(prompt, options);
+            int selectionIndex = welcomePageMenu.Run();
+
+            switch (selectionIndex)
+            {
+                case 0:
+                    // all recipes
+                    AllRecipesPage.Start();
+                    break;
+                case 1:
+                    // search
+                    SearchPage.Start();
+                    break;
+                case 2:
+                    //add recipe
+                    break;
+                case 3:
+                    // edit recipe
+                    break;
+                case 4:
+                    // delete recipe
+                    break;
+                case 5:
+                    // about
+                    DisplayAboutInfo();
+                    break;
+                case 6:
+                    // exit 
+                    ExitPage.Start();
+                    break;
+            }
         }
-        Run();
     }
 
     private static void DisplayAboutInfo()
@@ -57,6 +59,5 @@ public static class WelcomePage
             Console.ReadKey(true);
             break;
         }
-        Run();
     }
 }
