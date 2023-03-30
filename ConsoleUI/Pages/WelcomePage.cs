@@ -22,6 +22,7 @@ public static class WelcomePage
                 break;
             case 1:
                 // search
+                SearchPage.Start();
                 break;
             case 2:
                 //add recipe

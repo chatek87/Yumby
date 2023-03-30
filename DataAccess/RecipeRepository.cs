@@ -134,7 +134,7 @@ public class RecipeRepository : IRecipeRepository
         return db.Query<Recipe>("SELECT * FROM Recipes").ToList();
     }
 
-
+   
     public Recipe GetRecipe(int recipeId)
     {
         using IDbConnection db = new SQLiteConnection(_connectionString);
@@ -166,6 +166,35 @@ public class RecipeRepository : IRecipeRepository
 
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\\
 
+    public Recipe GetByName(string recipeName)
+    {
+        using IDbConnection db = new SQLiteConnection(_connectionString);
+        const string sql = @"
+        SELECT RecipeId, Name, ServingsYielded
+        FROM Recipes
+        WHERE Name = @recipeName;
+
+        SELECT IngredientId, Name, Quantity, UnitOfMeasurement
+        FROM Ingredients
+        WHERE RecipeId = (SELECT RecipeId FROM Recipes WHERE Name = @recipeName);
+
+        SELECT StepNumber, Description
+        FROM Instructions
+        WHERE RecipeId = (SELECT RecipeId FROM Recipes WHERE Name = @recipeName);
+    ";
+
+        using var result = db.QueryMultiple(sql, new { recipeName });
+        var recipe = result.Read<Recipe>().SingleOrDefault();
+
+        if (recipe != null)
+        {
+            recipe.Ingredients = result.Read<Ingredient>().ToList();
+            recipe.Instructions = result.Read<string>().ToList();
+        }
+        return recipe;
+    }
+
+
     public Recipe GetById(int recipeId)
     {
         using IDbConnection db = new SQLiteConnection(_connectionString);
@@ -194,6 +223,39 @@ public class RecipeRepository : IRecipeRepository
         return recipe;
     }
 
+    public List<Recipe> GetByIngredient(string ingredientName)
+    {
+        using IDbConnection db = new SQLiteConnection(_connectionString);
+        const string sql = @"
+        SELECT r.RecipeId, r.Name, r.ServingsYielded
+        FROM Recipes r
+        INNER JOIN Ingredients i ON r.RecipeId = i.RecipeId
+        WHERE i.Name = @ingredientName;
+    ";
+
+        var recipes = db.Query<Recipe>(sql, new { ingredientName }).ToList();
+
+        foreach (var recipe in recipes)
+        {
+            const string ingredientSql = @"
+            SELECT IngredientId, Name, Quantity, UnitOfMeasurement
+            FROM Ingredients
+            WHERE RecipeId = @recipeId;
+        ";
+
+            recipe.Ingredients = db.Query<Ingredient>(ingredientSql, new { recipeId = recipe.RecipeId }).ToList();
+
+            const string instructionSql = @"
+            SELECT StepNumber, Description
+            FROM Instructions
+            WHERE RecipeId = @recipeId;
+        ";
+
+            recipe.Instructions = db.Query<string>(instructionSql, new { recipeId = recipe.RecipeId }).ToList();
+        }
+
+        return recipes;
+    }
 
     public Recipe SelectById(int id)
     {

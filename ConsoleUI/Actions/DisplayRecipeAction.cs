@@ -25,7 +25,7 @@ public static class DisplayRecipeAction
 
         Console.WriteLine($"Makes {recipe.ServingsYielded} servings.");
 
-        WriteLine("\n\n\n");
+        WriteLine("\n\n");
         ConsoleUtils.WaitForKeyPress();
     }
 }

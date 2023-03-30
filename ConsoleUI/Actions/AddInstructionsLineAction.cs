@@ -1,6 +1,6 @@
 using System.Threading.Channels;
 
-namespace Yumby.ConsoleUI.Actions;
+namespace Yumby.ConsoleUI;
 
 public class AddInstructionsLineAction
 {

@@ -29,6 +29,7 @@ public class SelectedRecipePage
                 break;
             case 2:
                 // view shopping list
+                ShoppingListAction.DisplayShoppingList(selectedRecipe);
                 break;
             case 3:
                 // go back
