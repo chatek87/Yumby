@@ -2,8 +2,25 @@
 
 public static class Banner
 {
-//----------------------------------------------------------------------------------------------------------------------
     public static string YumbyArt()
+    {
+        Console.ForegroundColor = ConsoleColor.DarkMagenta;
+        const string output = @"
+
+                                  \\\
+        ____               ________```
+        \  =|-            [________] \
+        |  =| |     _     |        |  \           __
+        |__=|-  O--(_)    `.______.'   \ O=======(__)
+               /|\
+             (/(|(\
+
+";
+        return output;
+
+    }
+//----------------------------------------------------------------------------------------------------------------------
+    public static string YumbyBlockLetters()
     {
         Console.ForegroundColor = ConsoleColor.DarkMagenta;
         const string output = @"

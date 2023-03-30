@@ -19,9 +19,7 @@ public static class ExitPage
                 Environment.Exit(0);                
                 break;
             case 1:
-                //MainMenu.Start();
                 break;
         }
-        //return;
     }
 }

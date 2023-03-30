@@ -18,13 +18,14 @@ public static class AllRecipesPage
         var recipes = recipeRepo.GetAllRecipes();
         var sortedRecipes = recipes.OrderBy(r => r.Value.Name);
 
+        var sortedRecipesList = sortedRecipes.ToList();
         List<string> options = new List<string>();
        
         foreach (var recipe in sortedRecipes)
         {
             options.Add(recipe.Value.Name);
         }
-        options.Add("GO BACK");
+        options.Add("go back");
         
         Menu allRecipesPageMenu = new Menu("<<recipe book>>", options);
         int selectionIndex = allRecipesPageMenu.Run();
@@ -34,18 +35,10 @@ public static class AllRecipesPage
         {
             WelcomePage.Start();
         }
-
         else
         {
-            WriteLine($"You selected selectionIndex: {selectionIndex}");
-            WriteLine($"{options[selectionIndex]}");
+            var selectedRecipe = sortedRecipesList[selectionIndex].Value;
+            SelectedRecipePage.Start(selectedRecipe); 
         }
-
-
-        /*
-        // now use the fetched recipe name to pass to recipesubmenu 
-        // or better yet, include the unique recipeId (possibly as a tuple) in the List so that there won't be any confusion fetching recipes with the same name
-        // or possibly better still, find a way to pass the recipe object itself to the menu builder so you can skip the middleman steps of List etc...
-        // recipesubmenu will take recipe object as arg and facilitate viewing, editing, conversion, delete operations*/
     }
 }

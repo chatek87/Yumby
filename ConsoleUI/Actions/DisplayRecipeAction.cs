@@ -6,6 +6,7 @@ public static class DisplayRecipeAction
 {
     public static void DisplayRecipe(Recipe recipe)
     {
+        Console.Clear();
         Console.WriteLine(recipe.Name);
         Console.WriteLine(" ");
 
@@ -23,5 +24,8 @@ public static class DisplayRecipeAction
         Console.WriteLine(" ");
 
         Console.WriteLine($"Makes {recipe.ServingsYielded} servings.");
+
+        WriteLine("\n\n\n");
+        ConsoleUtils.WaitForKeyPress();
     }
 }

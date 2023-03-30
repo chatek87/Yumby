@@ -9,7 +9,7 @@ public static class WelcomePage
 
     private static void Run()
     {
-        string prompt = Banner.YumbyArt() + "welcome to yumby!";
+        string prompt = Banner.YumbyArt() + "welcome to yumby!\n";
         List<string> options = new List<string>{ "all recipes", "search", "add recipe", "edit recipe", "delete recipe", "about", "exit" };
         var welcomePageMenu = new Menu(prompt, options);
         int selectionIndex = welcomePageMenu.Run();
@@ -17,25 +17,31 @@ public static class WelcomePage
         switch (selectionIndex)
         {
             case 0:
+                // all recipes
                 AllRecipesPage.Start();
                 break;
             case 1:
+                // search
                 break;
             case 2:
+                //add recipe
                 break;
             case 3:
+                // edit recipe
                 break;
             case 4:
+                // delete recipe
                 break; 
             case 5:
+                // about
                 DisplayAboutInfo();
                 break;
             case 6:
+                // exit 
                 ExitPage.Start();
                 break;
-
-
         }
+        Run();
     }
 
     private static void DisplayAboutInfo()
@@ -44,8 +50,12 @@ public static class WelcomePage
         Console.WriteLine("yumby is a personal recipe keeper");
         Console.WriteLine("use it to search, store, edit, and find recipes");
         Console.WriteLine("\n");
-        Console.WriteLine("Press any key to return to the Main Menu");
-        Console.ReadKey(true);
+        while (true)
+        {
+            Console.WriteLine("Press any key to return to the Main Menu");
+            Console.ReadKey(true);
+            break;
+        }
         Run();
     }
 }

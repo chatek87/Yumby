@@ -7,6 +7,7 @@ public static class ConversionUtility
 {
     public static Recipe ChangeServingSize(Recipe convertedRecipe)
     {
+        Console.Clear();
         decimal desiredServings;
         decimal conversionFactor;
         do
