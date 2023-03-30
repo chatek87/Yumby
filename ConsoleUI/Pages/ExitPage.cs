@@ -11,12 +11,12 @@ public static class ExitPage
     {
         string prompt = Banner.ExitArt() + "Are you sure you want to exit?";
         List<string> options = new List<string>{ "yes", "go back" };
-        var exitPage = new Page(prompt, options);
+        var exitPage = new Menu(prompt, options);
         int selectionIndex = exitPage.Run();
         switch (selectionIndex)
         {
             case 0:
-                ConsoleUtils.QuitConsole();                
+                Environment.Exit(0);                
                 break;
             case 1:
                 //MainMenu.Start();

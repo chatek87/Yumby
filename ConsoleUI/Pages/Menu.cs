@@ -1,12 +1,12 @@
 namespace Yumby.ConsoleUI;
 
-public class Page
+public class Menu
 {
     private int _selectionIndex;
     private List<string> _options;
     private string _prompt;
 
-    public Page(string prompt, List<string> options)
+    public Menu(string prompt, List<string> options)
     {
         _prompt = prompt;
         _options = options;
@@ -65,8 +65,8 @@ public class Page
                     _selectionIndex = 0;
                 }
             }
-        }
-        while (keyPressed != ConsoleKey.Enter);
+        } while (keyPressed != ConsoleKey.Enter);
+
         return _selectionIndex;
     }
 }

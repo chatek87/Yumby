@@ -1,4 +1,4 @@
-﻿namespace Yumby.ConsoleUI;
+﻿/*namespace Yumby.ConsoleUI;
 
 public static class MainMenu
 {
@@ -38,4 +38,4 @@ public static class MainMenu
         Console.ReadKey(true);
         Run();
     }
-}
+}*/

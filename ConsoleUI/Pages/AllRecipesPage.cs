@@ -4,7 +4,7 @@ using Yumby.BusinessLogic;
 
 namespace Yumby.ConsoleUI;
 
-public static class RecipeBookPage
+public static class AllRecipesPage
 {
     public static void Start()
     {
@@ -19,20 +19,33 @@ public static class RecipeBookPage
         var sortedRecipes = recipes.OrderBy(r => r.Value.Name);
 
         List<string> options = new List<string>();
+       
         foreach (var recipe in sortedRecipes)
         {
             options.Add(recipe.Value.Name);
         }
-        Page recipeBookPage = new Page("Select a recipe:", options);
+        options.Add("GO BACK");
+        
+        Menu allRecipesPageMenu = new Menu("<<recipe book>>", options);
+        int selectionIndex = allRecipesPageMenu.Run();
 
-        int selectionIndex = recipeBookPage.Run();
+        //selection logic
+        if (selectionIndex == options.Count - 1)
+        {
+            WelcomePage.Start();
+        }
 
-        WriteLine($"You selected selectionIndex: {selectionIndex}");
-        // pass value of selectionIndex back to options
-        WriteLine($"{options[selectionIndex]}");
+        else
+        {
+            WriteLine($"You selected selectionIndex: {selectionIndex}");
+            WriteLine($"{options[selectionIndex]}");
+        }
+
+
+        /*
         // now use the fetched recipe name to pass to recipesubmenu 
         // or better yet, include the unique recipeId (possibly as a tuple) in the List so that there won't be any confusion fetching recipes with the same name
-        // or possibly better still, find a way to pass the dictionary itself to the menu builder so you can skip the middleman steps of List etc...
-        // recipesubmenu will take recipe object as arg and facilitate viewing, editing, conversion, delete operations
+        // or possibly better still, find a way to pass the recipe object itself to the menu builder so you can skip the middleman steps of List etc...
+        // recipesubmenu will take recipe object as arg and facilitate viewing, editing, conversion, delete operations*/
     }
 }

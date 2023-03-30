@@ -8,6 +8,3 @@ public class Recipe
     public List<string> Instructions { get; set; } = new List<string>();
     public decimal ServingsYielded { get; set; }
 }
-
-    //public List<Ingredient> Ingredients { get; set; } == null!;
-    //public List<string> Instructions { get; set; } = null!;

@@ -1,4 +1,4 @@
-﻿namespace Yumby.ConsoleUI;
+﻿/*namespace Yumby.ConsoleUI;
 
 public static class ExitMenu
 {
@@ -23,4 +23,4 @@ public static class ExitMenu
                 break;
         }
     }
-}
+}*/

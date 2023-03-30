@@ -1,9 +1,6 @@
-using System.Security.Cryptography.X509Certificates;
-using Yumby.DataAccess;
-
 namespace Yumby.ConsoleUI;
 
-public class WelcomePage
+public static class WelcomePage
 {
     public static void Start()
     {
@@ -13,21 +10,31 @@ public class WelcomePage
     private static void Run()
     {
         string prompt = Banner.YumbyArt() + "welcome to yumby!";
-        List<string> options = new List<string>{ "my recipes", "about", "exit" };
-        var welcomePage = new Page(prompt, options);
-        int selectionIndex = welcomePage.Run();
+        List<string> options = new List<string>{ "all recipes", "search", "add recipe", "edit recipe", "delete recipe", "about", "exit" };
+        var welcomePageMenu = new Menu(prompt, options);
+        int selectionIndex = welcomePageMenu.Run();
 
         switch (selectionIndex)
         {
             case 0:
-                RecipeBookPage.Start();
+                AllRecipesPage.Start();
                 break;
             case 1:
-                DisplayAboutInfo();
                 break;
             case 2:
-                ExitMenu.Start();
                 break;
+            case 3:
+                break;
+            case 4:
+                break; 
+            case 5:
+                DisplayAboutInfo();
+                break;
+            case 6:
+                ExitPage.Start();
+                break;
+
+
         }
     }
 

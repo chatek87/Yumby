@@ -1,8 +1,5 @@
-﻿
-using Yumby.BusinessLogic;
-using Yumby.ConsoleUI;
+﻿using Yumby.ConsoleUI;
 using Yumby.DataAccess;
-using Yumby.DataModels;
 
 Title = "Yummmmmmmmby!";
 //CursorVisible = false;
