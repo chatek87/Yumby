@@ -11,7 +11,13 @@ yumby also allows a user to easily adjust a recipe to suit the desired number of
   
 data is persisted through the use of a local sqlite3 database  
 
-### instructions:
+### instructions for running:
+If using Visual Studio, ensure that Yumby.ConsoleUI is selected as startup project.  
+If using VS Code, cd to Yumby.ConsoleUI and execute dotnet run.  
+You might need to execute dotnet restore if you are experiencing any errors loading packages.  
+The database will automatically be generated and seeded with sample data within the ConsoleUI bin folder the first time you run the program.  
+
+### app instructions:
 use the up/down arrow keys to navigate menu and ENTER to select menu option  
 follow the prompts  
 
