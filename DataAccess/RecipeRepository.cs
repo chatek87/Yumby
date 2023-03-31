@@ -19,56 +19,26 @@ public class RecipeRepository : IRecipeRepository
     }
 
 
-    public IEnumerable<Recipe> SelectAllRecipesPopulateDictionary() //TODO: Add instructions join.
-    {
-        using IDbConnection db = new SQLiteConnection(_connectionString);
-        const string query = @"
-        SELECT r.RecipeId, r.Name, r.ServingsYielded,
-               i.IngredientId, i.Name, i.Quantity, i.UnitOfMeasurement
-        FROM Recipes r
-        LEFT JOIN Ingredients i ON r.RecipeId = i.RecipeId";
-        var recipes = new Dictionary<int, Recipe>();
-        db.Query<Recipe, Ingredient, Recipe>(query, (recipe, ingredient) =>
-        {
-            if (!recipes.TryGetValue(recipe.RecipeId, out var recipeEntry))
-            {
-                recipeEntry = recipe;
-                recipeEntry.Ingredients = new List<Ingredient>();
-                recipes.Add(recipeEntry.RecipeId, recipeEntry);
-            }
-            recipeEntry.Ingredients.Add(ingredient);
-            return recipeEntry;
-        }, splitOn: "IngredientId");
-        return recipes.Values;
-    }
-
-
     public Dictionary<int, Recipe> GetAllRecipes()
     {
         using IDbConnection db = new SQLiteConnection(_connectionString);
-        // Query the database for all recipes and their ingredients
         string recipeQuery = "SELECT RecipeId, Name, ServingsYielded FROM Recipes";
         string ingredientsQuery = "SELECT RecipeId, Name, Quantity, UnitOfMeasurement FROM Ingredients";
         var recipes = db.Query<Recipe>(recipeQuery);
         var ingredients = db.Query<Ingredient>(ingredientsQuery);
 
-        // Group the ingredients by recipe ID
         var ingredientsByRecipeId = ingredients.GroupBy(i => i.RecipeId)
                                                .ToDictionary(g => g.Key, g => g.ToList());
 
-        // Query the database for all recipes' instructions
         string instructionsQuery = "SELECT RecipeId, Description FROM Instructions";
         var instructions = db.Query<(int RecipeId, string Description)>(instructionsQuery);
 
-        // Group the instructions by recipe ID
         var instructionsByRecipeId = instructions.GroupBy(i => i.RecipeId)
                                                   .ToDictionary(g => g.Key, g => g.Select(i => i.Description).ToList());
 
-        // Create a dictionary of recipes
         var recipeDictionary = new Dictionary<int, Recipe>();
         foreach (var recipe in recipes)
         {
-            // Create a new recipe object
             var newRecipe = new Recipe
             {
                 RecipeId = recipe.RecipeId,
@@ -78,11 +48,9 @@ public class RecipeRepository : IRecipeRepository
                 Instructions = instructionsByRecipeId.GetValueOrDefault(recipe.RecipeId, new List<string>())
             };
 
-            // Add the recipe to the dictionary
             recipeDictionary.Add(recipe.RecipeId, newRecipe);
         }
 
-        // Return the dictionary of recipes
         return recipeDictionary;
     }
 
@@ -90,29 +58,23 @@ public class RecipeRepository : IRecipeRepository
     public async Task<Dictionary<int, Recipe>> GetAllRecipesAsync()
     {
         using IDbConnection db = new SQLiteConnection(_connectionString);
-        // Query the database for all recipes and their ingredients
         string recipeQuery = "SELECT RecipeId, Name, ServingsYielded FROM Recipes";
         string ingredientsQuery = "SELECT RecipeId, Name, Quantity, UnitOfMeasurement FROM Ingredients";
         var recipes = await db.QueryAsync<Recipe>(recipeQuery);
         var ingredients = await db.QueryAsync<Ingredient>(ingredientsQuery);
 
-        // Group the ingredients by recipe ID
         var ingredientsByRecipeId = ingredients.GroupBy(i => i.RecipeId)
                                                .ToDictionary(g => g.Key, g => g.ToList());
 
-        // Query the database for all recipes' instructions
         string instructionsQuery = "SELECT RecipeId, Description FROM Instructions";
         var instructions = await db.QueryAsync<(int RecipeId, string Description)>(instructionsQuery);
 
-        // Group the instructions by recipe ID
         var instructionsByRecipeId = instructions.GroupBy(i => i.RecipeId)
                                                   .ToDictionary(g => g.Key, g => g.Select(i => i.Description).ToList());
 
-        // Create a dictionary of recipes
         var recipeDictionary = new Dictionary<int, Recipe>();
         foreach (var recipe in recipes)
         {
-            // Create a new recipe object
             var newRecipe = new Recipe
             {
                 RecipeId = recipe.RecipeId,
@@ -122,11 +84,9 @@ public class RecipeRepository : IRecipeRepository
                 Instructions = instructionsByRecipeId.GetValueOrDefault(recipe.RecipeId, new List<string>())
             };
 
-            // Add the recipe to the dictionary
             recipeDictionary.Add(recipe.RecipeId, newRecipe);
         }
 
-        // Return the dictionary of recipes
         return recipeDictionary;
     }
 
@@ -138,37 +98,6 @@ public class RecipeRepository : IRecipeRepository
     }
 
    
-    public Recipe GetRecipe(int recipeId)
-    {
-        using IDbConnection db = new SQLiteConnection(_connectionString);
-        // Query the database for the recipe and its ingredients
-        string recipeQuery = "SELECT RecipeId, Name, ServingsYielded FROM Recipes WHERE RecipeId = @RecipeId";
-        string ingredientsQuery = "SELECT RecipeId, Name, Quantity, UnitOfMeasurement FROM Ingredients WHERE RecipeId = @RecipeId";
-        var recipe = db.QuerySingleOrDefault<Recipe>(recipeQuery, new { RecipeId = recipeId });
-        var ingredients = db.Query<Ingredient>(ingredientsQuery, new { RecipeId = recipeId });
-
-        // If no recipe was found, return null
-        if (recipe == null)
-        {
-            return null;
-        }
-
-        // Add the ingredients to the recipe object
-        recipe.Ingredients = ingredients.ToList();
-
-        // Query the database for the recipe's instructions
-        string instructionsQuery = "SELECT Text FROM Instructions WHERE RecipeId = @RecipeId";
-        var instructions = db.Query<string>(instructionsQuery, new { RecipeId = recipeId });
-
-        // Add the instructions to the recipe object
-        recipe.Instructions = instructions.ToList();
-
-        // Return the recipe object
-        return recipe;
-    }
-
-    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\\
-
     public Recipe GetByName(string recipeName)
     {
         using IDbConnection db = new SQLiteConnection(_connectionString);
@@ -323,8 +252,6 @@ public class RecipeRepository : IRecipeRepository
     }
 
 
-
-
     private void DeleteIngredients(int recipeId)
     {
         using IDbConnection db = new SQLiteConnection(_connectionString);
@@ -342,7 +269,6 @@ public class RecipeRepository : IRecipeRepository
     {
         using (SQLiteConnection connection = new SQLiteConnection(Globals.connectionString))
         {
-            // Get the RecipeId for the specified recipe
             int recipeId = connection.QueryFirstOrDefault<int>("SELECT RecipeId FROM Recipes WHERE Name = @RecipeName", new { RecipeName = recipeName });
 
             if (recipeId == default(int))
@@ -351,20 +277,13 @@ public class RecipeRepository : IRecipeRepository
                 return;
             }
 
-            // Delete the recipe from the Recipes table
             connection.Execute("DELETE FROM Recipes WHERE RecipeId = @RecipeId", new { RecipeId = recipeId });
 
-            // Delete the ingredients associated with the recipe from the Ingredients table
             connection.Execute("DELETE FROM Ingredients WHERE RecipeId = @RecipeId", new { RecipeId = recipeId });
 
-            // Delete the instructions associated with the recipe from the Instructions table
             connection.Execute("DELETE FROM Instructions WHERE RecipeId = @RecipeId", new { RecipeId = recipeId });
 
             Console.WriteLine($"Recipe '{recipeName}' and its associated ingredients and instructions have been deleted from the database.");
         }
     }
-
-
-
-
 }

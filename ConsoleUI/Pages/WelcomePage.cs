@@ -12,7 +12,7 @@ public static class WelcomePage
         while (true)
         {
             string prompt = Banner.YumbyBlockLetters() + "welcome to yumby!\n";
-            List<string> options = new List<string> { "all recipes", "search", "add recipe", "edit recipe", "delete recipe", "about", "exit" };
+            List<string> options = new List<string> { "all recipes", "search", "add recipe", "delete recipe", "about", "exit" };
             var welcomePageMenu = new Menu(prompt, options);
             int selectionIndex = welcomePageMenu.Run();
 
@@ -31,17 +31,14 @@ public static class WelcomePage
                     CreateNewRecipeAction.CreateNewRecipe();
                     break;
                 case 3:
-                    // edit recipe
-                    break;
-                case 4:
                     // delete recipe
                     DeleteRecipeAction.DeleteRecipe();
                     break;
-                case 5:
+                case 4:
                     // about
                     DisplayAboutInfo();
                     break;
-                case 6:
+                case 5:
                     // exit 
                     ExitPage.Start();
                     break;
