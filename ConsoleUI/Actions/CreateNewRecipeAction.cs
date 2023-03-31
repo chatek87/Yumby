@@ -8,20 +8,17 @@ public static class CreateNewRecipeAction
     public static void CreateNewRecipe()
     {
         var myRecipe = new Recipe();
-
+        Console.Clear();
         Console.Write("Recipe name: ");
         string? upperCaseRecipeName = Console.ReadLine();
-        myRecipe.Name = upperCaseRecipeName?.ToUpper();
+        myRecipe.Name = upperCaseRecipeName?.ToLower();
         Console.Clear();
 
         string prompt1 = $"<< {myRecipe.Name} ingredients >>";
         List<string> options1 = new List<string>{ "add another ingredient", "done adding ingredients" };
         Console.WriteLine(prompt1);
         myRecipe.Ingredients = new List<Ingredient>();
-        //myRecipe.Ingredients.Add(RecipeActions.AddNewIngredient());
-        //myRecipe.Ingredients.Add(myRecipe.AddNewIngredient());  // ***TODO: this functionality needs to be moved to RecipeService class, and hooked up to corresponding 
-        // methods in the RecipeRepository/IRecipeRepository. 
-        // SAME goes for AddInstructionsLine();
+        
         var menu1 = new Menu(prompt1, options1);
         int selectionIndex1 = menu1.Run();
         while (selectionIndex1 == 0)

@@ -334,4 +334,34 @@ public class RecipeRepository : IRecipeRepository
         using IDbConnection db = new SQLiteConnection(_connectionString);
         db.Execute("DELETE FROM Instructions WHERE RecipeId = @RecipeId", new { RecipeId = recipeId });
     }
+
+    public void DeleteRecipe(string recipeName)
+    {
+        using (SQLiteConnection connection = new SQLiteConnection(Globals.connectionString))
+        {
+            // Get the RecipeId for the specified recipe
+            int recipeId = connection.QueryFirstOrDefault<int>("SELECT RecipeId FROM Recipes WHERE Name = @RecipeName", new { RecipeName = recipeName });
+
+            if (recipeId == default(int))
+            {
+                Console.WriteLine($"Recipe '{recipeName}' not found in database.");
+                return;
+            }
+
+            // Delete the recipe from the Recipes table
+            connection.Execute("DELETE FROM Recipes WHERE RecipeId = @RecipeId", new { RecipeId = recipeId });
+
+            // Delete the ingredients associated with the recipe from the Ingredients table
+            connection.Execute("DELETE FROM Ingredients WHERE RecipeId = @RecipeId", new { RecipeId = recipeId });
+
+            // Delete the instructions associated with the recipe from the Instructions table
+            connection.Execute("DELETE FROM Instructions WHERE RecipeId = @RecipeId", new { RecipeId = recipeId });
+
+            Console.WriteLine($"Recipe '{recipeName}' and its associated ingredients and instructions have been deleted from the database.");
+        }
+    }
+
+
+
+
 }

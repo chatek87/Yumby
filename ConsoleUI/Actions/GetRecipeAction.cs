@@ -13,7 +13,7 @@ public static class GetRecipeAction
 
         string searchedRecipeName = Console.ReadLine();
         
-        var searchedRecipe = recipeRepo.GetByName(searchedRecipeName);
+        var searchedRecipe = recipeRepo.GetByName(searchedRecipeName.ToLower());
 
         Console.Clear();
 
@@ -37,7 +37,7 @@ public static class GetRecipeAction
 
         string searchedIngredientName = Console.ReadLine();
 
-        var recipesContainingIngredient = recipeRepo.GetByIngredient(searchedIngredientName);
+        var recipesContainingIngredient = recipeRepo.GetByIngredient(searchedIngredientName.ToLower());
 
         Console.Clear();
 

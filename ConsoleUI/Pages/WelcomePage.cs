@@ -35,6 +35,7 @@ public static class WelcomePage
                     break;
                 case 4:
                     // delete recipe
+                    DeleteRecipeAction.DeleteRecipe();
                     break;
                 case 5:
                     // about

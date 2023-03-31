@@ -50,30 +50,30 @@ public static class DbInitializer
 
         // Insert some sample recipes into the Recipes table
         connection.Execute(@"INSERT INTO Recipes (Name, ServingsYielded) VALUES
-                            ('Chocolate Cake', 8),
-                            ('Pancakes', 4),
-                            ('Spaghetti Bolognese', 6)
+                            ('chocolate cake', 8),
+                            ('pancakes', 4),
+                            ('spaghetti bolognese', 6)
                         ");
 
         // Insert some sample ingredients into the Ingredients table
         connection.Execute(@"INSERT INTO Ingredients (RecipeId, Name, Quantity, UnitOfMeasurement) VALUES
-                            (1, 'Flour', 2.5, 'Cups'),
-                            (1, 'Sugar', 2, 'Cups'),
-                            (1, 'Cocoa Powder', 1, 'Cups'),
-                            (2, 'Flour', 1.5, 'Cups'),
-                            (2, 'Baking Powder', 1, 'Cups'),
-                            (2, 'Salt', 0.5, 'Tsp'),
-                            (2, 'Milk', 1, 'Cup'),
-                            (3, 'Ground Beef', 1, 'Lbs'),
-                            (3, 'Onion', 1, ''),
-                            (3, 'Garlic', 2, ''),
-                            (3, 'Carrots', 2, ''),
-                            (3, 'Celery', 2, ''),
-                            (3, 'Canned Tomatoes', 2, '12 oz cans'),
-                            (3, 'Tomato Paste', 1, '8 oz can'),
-                            (3, 'Red Wine', 1, 'cup'),
-                            (3, 'Dried Oregano', 1, 'tbsp'),
-                            (3, 'Dried Basil', 1, 'tbsp')
+                            (1, 'flour', 2.5, 'cups'),
+                            (1, 'sugar', 2, 'cups'),
+                            (1, 'cocoa powder', 1, 'cups'),
+                            (2, 'flour', 1.5, 'cups'),
+                            (2, 'baking powder', 1, 'cups'),
+                            (2, 'salt', 0.5, 'tsp'),
+                            (2, 'milk', 1, 'cup'),
+                            (3, 'ground beef', 1, 'lbs'),
+                            (3, 'onion', 1, ''),
+                            (3, 'garlic', 2, ''),
+                            (3, 'carrots', 2, ''),
+                            (3, 'celery', 2, ''),
+                            (3, 'canned tomatoes', 2, '12 oz cans'),
+                            (3, 'tomato paste', 1, '8 oz can'),
+                            (3, 'red wine', 1, 'cup'),
+                            (3, 'dried oregano', 1, 'tbsp'),
+                            (3, 'dried basil', 1, 'tbsp')
                         ");
 
         connection.Execute(@"INSERT INTO Instructions (RecipeId, Description) VALUES
