@@ -5,6 +5,8 @@ namespace Yumby.BusinessLogic;
 
 public static class ConversionUtility
 {
+    //Single Responsibility Princple:
+    //This class's only responsibility is to handle the recipe conversion functionality
     public static Recipe ChangeServingSize(Recipe convertedRecipe)
     {
         Console.Clear();

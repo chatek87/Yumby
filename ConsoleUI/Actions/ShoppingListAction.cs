@@ -4,6 +4,8 @@ namespace Yumby.ConsoleUI;
 
 public static class ShoppingListAction
 {
+    //Single Responsibility Principle:
+    //This class's only purpose is to handle the Shopping List functionality the program provides
     public static void DisplayShoppingList(Recipe recipe)
     {
         Console.Clear();

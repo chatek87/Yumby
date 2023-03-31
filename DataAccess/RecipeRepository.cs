@@ -5,7 +5,10 @@ using Yumby.DataModels;
 
 namespace Yumby.DataAccess;
 
-// This class handles all direct communication with the database
+//Interface Segregation Principle:
+//This class implements the IRecipeRepository interface, which provides a layer of abstraction that decouples the actions
+//in the UI/business logic layer from the data access layer. This allows easy swapping of db implementation.
+
 public class RecipeRepository : IRecipeRepository
 {
     private readonly string _connectionString;

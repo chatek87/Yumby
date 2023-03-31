@@ -4,6 +4,8 @@ using Yumby.DataModels;
 
 namespace Yumby.DataAccess;
 
+//Interface Segregation Principle:
+//This class defines the interface which the RecipeRepository must implement
 public interface IRecipeRepository
 {
     IEnumerable<Recipe> SelectAll();

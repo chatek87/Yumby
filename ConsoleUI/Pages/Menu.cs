@@ -1,5 +1,7 @@
 namespace Yumby.ConsoleUI;
 
+//Single Responsibility Principle:
+//This class's only responsibility is to handle the scrolling menu functionality
 public class Menu
 {
     private int _selectionIndex;
