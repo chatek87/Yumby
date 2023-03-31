@@ -1,10 +1,11 @@
-/*using Yumby.DataModels;
+using Yumby.DataAccess;
+using Yumby.DataModels;
 
 namespace Yumby.ConsoleUI;
 
 public static class CreateNewRecipeAction
 {
-    public static Recipe CreateNewRecipe()
+    public static void CreateNewRecipe()
     {
         var myRecipe = new Recipe();
 
@@ -14,10 +15,10 @@ public static class CreateNewRecipeAction
         Console.Clear();
 
         string prompt1 = $"<< {myRecipe.Name} ingredients >>";
-        string[] options1 = { "add another ingredient", "done adding ingredients" };
+        List<string> options1 = new List<string>{ "add another ingredient", "done adding ingredients" };
         Console.WriteLine(prompt1);
         myRecipe.Ingredients = new List<Ingredient>();
-        myRecipe.Ingredients.Add(myRecipe(RecipeActions.AddNewIngredient()));
+        //myRecipe.Ingredients.Add(RecipeActions.AddNewIngredient());
         //myRecipe.Ingredients.Add(myRecipe.AddNewIngredient());  // ***TODO: this functionality needs to be moved to RecipeService class, and hooked up to corresponding 
         // methods in the RecipeRepository/IRecipeRepository. 
         // SAME goes for AddInstructionsLine();
@@ -38,7 +39,7 @@ public static class CreateNewRecipeAction
         Console.Clear();
 
         string prompt2 = $"<< {myRecipe.Name} instructions >> ";
-        string[] options2 = { "add another line", "finish" };
+        List<string> options2 = new List<string>{ "add another line", "finish" };
         Console.WriteLine(prompt2);
         Console.WriteLine("(type one line at a time, followed by \"ENTER\")");
         myRecipe.Instructions = new List<string>();
@@ -71,7 +72,8 @@ public static class CreateNewRecipeAction
         }
         Console.Clear();
 
+        var recipeRepo = new RecipeRepository(Globals.connectionString);
+        recipeRepo.Insert(myRecipe);
         Console.WriteLine($"{myRecipe.Name} Added!");
-        return myRecipe;
     }
-}*/
+}

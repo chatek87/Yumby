@@ -15,6 +15,8 @@ public static class GetRecipeAction
         
         var searchedRecipe = recipeRepo.GetByName(searchedRecipeName);
 
+        Console.Clear();
+
         if (searchedRecipe == null)
         {
             Console.WriteLine($"Sorry, no recipe called {searchedRecipeName}");
@@ -31,11 +33,13 @@ public static class GetRecipeAction
     {
         var recipeRepo = new RecipeRepository(Globals.connectionString);
 
-        Console.WriteLine("Search for recipes with which ingredient?");
+        Console.WriteLine("Search for recipes containing which ingredient?");
 
         string searchedIngredientName = Console.ReadLine();
 
         var recipesContainingIngredient = recipeRepo.GetByIngredient(searchedIngredientName);
+
+        Console.Clear();
 
         if (recipesContainingIngredient.Count == 0)
         {
@@ -45,6 +49,7 @@ public static class GetRecipeAction
         }
         else
         {
+            Console.WriteLine($"Recipes containing {searchedIngredientName}:");
             return recipesContainingIngredient;
         }
     }

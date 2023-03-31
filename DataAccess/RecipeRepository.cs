@@ -267,7 +267,7 @@ public class RecipeRepository : IRecipeRepository
     public void Insert(Recipe recipe)
     {
         using IDbConnection db = new SQLiteConnection(_connectionString);
-        db.Execute("INSERT INTO Recipes (Name, ServingsYielded) VALUES (@Name, @ServingsYielded)", recipe);
+        db.Execute("INSERT INTO Recipes (RecipeId, Name, ServingsYielded) VALUES (@RecipeId, @Name, @ServingsYielded)", recipe);
         int recipeId = db.Query<int>("SELECT last_insert_rowid()").Single();
         recipe.RecipeId = recipeId;
         if (recipe.Ingredients != null)
@@ -277,6 +277,27 @@ public class RecipeRepository : IRecipeRepository
         if (recipe.Instructions != null)
         {
             InsertInstructions(recipe);
+        }
+    }
+
+    private void InsertIngredients(Recipe recipe)
+    {
+        using IDbConnection db = new SQLiteConnection(_connectionString);
+        foreach (var ingredient in recipe.Ingredients)
+        {
+            ingredient.RecipeId = recipe.RecipeId;
+            db.Execute("INSERT INTO Ingredients (RecipeId, Name, Quantity, UnitOfMeasurement) VALUES (@RecipeId, @Name, @Quantity, @UnitOfMeasurement)", ingredient);
+        }
+    }
+
+    private void InsertInstructions(Recipe recipe)
+    {
+        using IDbConnection db = new SQLiteConnection(_connectionString);
+        int stepNumber = 1;
+        foreach (var instruction in recipe.Instructions)
+        {
+            db.Execute("INSERT INTO Instructions (RecipeId, StepNumber, Description) VALUES (@RecipeId, @StepNumber, @Description)", new { RecipeId = recipe.RecipeId, StepNumber = stepNumber, Description = instruction });
+            stepNumber++;
         }
     }
 
@@ -299,27 +320,6 @@ public class RecipeRepository : IRecipeRepository
     }
 
 
-    private void InsertIngredients(Recipe recipe)
-    {
-        using IDbConnection db = new SQLiteConnection(_connectionString);
-        foreach (var ingredient in recipe.Ingredients)
-        {
-            ingredient.RecipeId = recipe.RecipeId;
-            db.Execute("INSERT INTO Ingredients (RecipeId, Name, Quantity, UnitOfMeasurement) VALUES (@RecipeId, @Name, @Quantity, @UnitOfMeasurement)", ingredient);
-        }
-    }
-
-
-    private void InsertInstructions(Recipe recipe)
-    {
-        using IDbConnection db = new SQLiteConnection(_connectionString);
-        int stepNumber = 1;
-        foreach (var instruction in recipe.Instructions)
-        {
-            db.Execute("INSERT INTO Instructions (RecipeId, StepNumber, Description) VALUES (@RecipeId, @StepNumber, @Description)", new { RecipeId = recipe.RecipeId, StepNumber = stepNumber, Description = instruction });
-            stepNumber++;
-        }
-    }
 
 
     private void DeleteIngredients(int recipeId)

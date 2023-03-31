@@ -28,6 +28,7 @@ public static class WelcomePage
                     break;
                 case 2:
                     //add recipe
+                    CreateNewRecipeAction.CreateNewRecipe();
                     break;
                 case 3:
                     // edit recipe
