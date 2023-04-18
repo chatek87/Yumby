@@ -70,7 +70,7 @@ public static class CreateNewRecipeAction
         Console.Clear();
 
         var recipeRepo = new RecipeRepository(Globals.connectionString);
-        recipeRepo.Insert(myRecipe);
+        recipeRepo.InsertRecipe(myRecipe);
         Console.WriteLine($"{myRecipe.Name} Added!");
     }
 }

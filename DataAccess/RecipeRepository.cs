@@ -195,7 +195,39 @@ public class RecipeRepository : IRecipeRepository
         return db.Query<Recipe>("SELECT * FROM Recipes WHERE RecipeId = @Id", new { Id = id }).FirstOrDefault();
     }
 
+    public void InsertRecipe(Recipe recipe)
+    {
+        using (var connection = new SQLiteConnection(Globals.connectionString))
+        {
+            connection.Open();
 
+            // Insert the Recipe into the Recipes table
+            int recipeId = connection.Query<int>(@"
+                    INSERT INTO Recipes (Name, ServingsYielded) VALUES (@Name, @ServingsYielded);
+                    SELECT last_insert_rowid()", recipe).Single();
+
+            // Insert each Ingredient into the Ingredients table
+            foreach (var ingredient in recipe.Ingredients)
+            {
+                connection.Execute(@"
+                        INSERT INTO Ingredients (RecipeId, Name, Quantity, UnitOfMeasurement)
+                        VALUES (@RecipeId, @Name, @Quantity, @UnitOfMeasurement)",
+                    new { RecipeId = recipeId, Name = ingredient.Name, Quantity = ingredient.Quantity, UnitOfMeasurement = ingredient.UnitOfMeasurement });
+            }
+
+            // Insert each Instruction into the Instructions table
+            foreach (var instruction in recipe.Instructions)
+            {
+                connection.Execute(@"
+                        INSERT INTO Instructions (RecipeId, Description)
+                        VALUES (@RecipeId, @Description)",
+                    new { RecipeId = recipeId, Description = instruction });
+            }
+
+            connection.Close();
+        }
+    }
+    //___________________________________________________________________________________________________________________
     public void Insert(Recipe recipe)
     {
         using IDbConnection db = new SQLiteConnection(_connectionString);
