@@ -1,13 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "NvE3VocPR/KK6Z1HTKvgUbEONF85gWvYXmS2+CmhJaNVoNFfRngjetroUbi+7Rg3WgbFQX530niuh6VOW/B/sQ==",
+  "dgSpecHash": "bNXCyiPXrYX65Enhiyuj5PlS0Aj2uXyjl95hf3Rfl6KQUGZdqhwIQDu6hBk7zsU8siswZ9FI1nPtcPxR6manBA==",
   "success": true,
   "projectFilePath": "C:\\Users\\charl\\dev\\Yumby\\BusinessLogic\\Yumby.BusinessLogic.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\charl\\.nuget\\packages\\dapper\\2.0.123\\dapper.2.0.123.nupkg.sha512",
     "C:\\Users\\charl\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",
     "C:\\Users\\charl\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
-    "C:\\Users\\charl\\.nuget\\packages\\microsoft.data.sqlite.core\\7.0.4\\microsoft.data.sqlite.core.7.0.4.nupkg.sha512",
+    "C:\\Users\\charl\\.nuget\\packages\\microsoft.data.sqlite.core\\7.0.5\\microsoft.data.sqlite.core.7.0.5.nupkg.sha512",
     "C:\\Users\\charl\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\charl\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\charl\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",

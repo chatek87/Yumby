@@ -1,13 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "dpWBrip1oylAjUO2mTjAw6ZbN22di/mHw6IcKLPB+WacAgO5IPHq0lTjU5bXdvAjKeEdePC/4Higd4WMWXo9oA==",
+  "dgSpecHash": "Y7PCUqm+alELkkaVH8CvG7OKRrWs25zGJYdpmufP8+c+qUj+BJkWNv21teb3UBz+wMbSY4Vvsym0JnLN9+4hGw==",
   "success": true,
   "projectFilePath": "C:\\Users\\charl\\dev\\Yumby\\DataAccess\\Yumby.DataAccess.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\charl\\.nuget\\packages\\dapper\\2.0.123\\dapper.2.0.123.nupkg.sha512",
     "C:\\Users\\charl\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",
     "C:\\Users\\charl\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
-    "C:\\Users\\charl\\.nuget\\packages\\microsoft.data.sqlite.core\\7.0.4\\microsoft.data.sqlite.core.7.0.4.nupkg.sha512",
+    "C:\\Users\\charl\\.nuget\\packages\\microsoft.data.sqlite.core\\7.0.5\\microsoft.data.sqlite.core.7.0.5.nupkg.sha512",
     "C:\\Users\\charl\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\charl\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\charl\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",

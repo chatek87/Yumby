@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\charl\\dev\\yumby\\DataModels\\Yumby.DataModels.csproj",
+      "projectUniqueName": "C:\\Users\\charl\\dev\\Yumby\\DataModels\\Yumby.DataModels.csproj",
       "projectName": "Yumby.DataModels",
-      "projectPath": "C:\\Users\\charl\\dev\\yumby\\DataModels\\Yumby.DataModels.csproj",
+      "projectPath": "C:\\Users\\charl\\dev\\Yumby\\DataModels\\Yumby.DataModels.csproj",
       "packagesPath": "C:\\Users\\charl\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\charl\\dev\\yumby\\DataModels\\obj\\",
+      "outputPath": "C:\\Users\\charl\\dev\\Yumby\\DataModels\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -33,7 +33,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -67,7 +66,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
       }
     }
   }

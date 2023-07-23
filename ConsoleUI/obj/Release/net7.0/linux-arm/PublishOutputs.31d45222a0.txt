@@ -1,0 +1,5 @@
+C:\Users\charl\dev\Yumby\ConsoleUI\bin\Release\net7.0\publish\linux-arm\Yumby.ConsoleUI.pdb
+C:\Users\charl\dev\Yumby\ConsoleUI\bin\Release\net7.0\publish\linux-arm\Yumby.BusinessLogic.pdb
+C:\Users\charl\dev\Yumby\ConsoleUI\bin\Release\net7.0\publish\linux-arm\Yumby.DataAccess.pdb
+C:\Users\charl\dev\Yumby\ConsoleUI\bin\Release\net7.0\publish\linux-arm\Yumby.DataModels.pdb
+C:\Users\charl\dev\Yumby\ConsoleUI\bin\Release\net7.0\publish\linux-arm\Yumby.ConsoleUI

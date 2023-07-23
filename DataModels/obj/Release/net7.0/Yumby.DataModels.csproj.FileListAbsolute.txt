@@ -1,0 +1,12 @@
+C:\Users\charl\dev\Yumby\DataModels\bin\Release\net7.0\Yumby.DataModels.deps.json
+C:\Users\charl\dev\Yumby\DataModels\bin\Release\net7.0\Yumby.DataModels.dll
+C:\Users\charl\dev\Yumby\DataModels\bin\Release\net7.0\Yumby.DataModels.pdb
+C:\Users\charl\dev\Yumby\DataModels\obj\Release\net7.0\Yumby.DataModels.csproj.AssemblyReference.cache
+C:\Users\charl\dev\Yumby\DataModels\obj\Release\net7.0\Yumby.DataModels.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\charl\dev\Yumby\DataModels\obj\Release\net7.0\Yumby.DataModels.AssemblyInfoInputs.cache
+C:\Users\charl\dev\Yumby\DataModels\obj\Release\net7.0\Yumby.DataModels.AssemblyInfo.cs
+C:\Users\charl\dev\Yumby\DataModels\obj\Release\net7.0\Yumby.DataModels.csproj.CoreCompileInputs.cache
+C:\Users\charl\dev\Yumby\DataModels\obj\Release\net7.0\Yumby.DataModels.dll
+C:\Users\charl\dev\Yumby\DataModels\obj\Release\net7.0\refint\Yumby.DataModels.dll
+C:\Users\charl\dev\Yumby\DataModels\obj\Release\net7.0\Yumby.DataModels.pdb
+C:\Users\charl\dev\Yumby\DataModels\obj\Release\net7.0\ref\Yumby.DataModels.dll
